@@ -14,12 +14,21 @@
 </head>
 <body>
 
-    <!--Hero Secction with Genius API search and top buttons-->
+    <!--Hero Section with Genius API search and top buttons-->
     <section class="hero-section">
         <div class="top-buttons">
             <button class="btn btn-primary">Something</button>
             <button class="btn btn-secondary">Something</button>
         </div>
+    
+
+    <!--Genius API search bar and button-->
+        <label for="search-type">Search for Song:</label>
+
+        <input type="text" id="search-input" placeholder="Enter song name" required>
+        <a href="javascript:void(0)" id="toggle-artist-query">Click here to include artist</a>
+        <input type="text" id="artist-input" class="d-none" placeholder="Enter artist name (optional)">
+        <button id="search-btn" class="btn btn-primary">Search</button>
     </section>
     
     <!--Bootstrap JS CDN-->
