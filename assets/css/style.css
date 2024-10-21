@@ -1,0 +1,12 @@
+.top-buttons {
+    top: 20px;
+    right: 20px;
+    position: absolute;
+  }
+  
+  .hero-section {
+    background: url('../images/vinyl-hero.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+  }
