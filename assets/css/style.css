@@ -10,3 +10,15 @@
     position: relative;
     height: 100vh;
   }
+
+  .genius-api-bar {
+    top: 33%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:large;
+  }
+
+  #toggle-artist-query {
+    color: white;
+  }

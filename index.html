@@ -23,12 +23,14 @@
     
 
     <!--Genius API search bar and button-->
-        <label for="search-type">Search for Song:</label>
+        <div class="genius-api-bar">
+            <label for="search-type">Search by Song Name:</label>
 
-        <input type="text" id="search-input" placeholder="Enter song name" required>
-        <a href="javascript:void(0)" id="toggle-artist-query">Click here to include artist</a>
-        <input type="text" id="artist-input" class="d-none" placeholder="Enter artist name (optional)">
-        <button id="search-btn" class="btn btn-primary">Search</button>
+            <input type="text" id="search-input" placeholder="Enter song name" required>
+            <a href="javascript:void(0)" id="toggle-artist-query">Click here to include artist</a>
+            <input type="text" id="artist-input" class="d-none" placeholder="Enter artist name (optional)">
+            <button id="search-btn" class="btn btn-primary">Search</button>
+        </div>
     </section>
     
     <!--Bootstrap JS CDN-->
