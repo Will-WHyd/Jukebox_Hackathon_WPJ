@@ -1,9 +1,11 @@
 
     //GENIUS LYRICS API
     
+    import config from './config.js'; // Import configuration
+
     // API Details
-    const apiKey = ''; // API Key to go here
-    const apiHost = 'genius-song-lyrics1.p.rapidapi.com';
+    const apiKey1 = config.apiKey1;
+    const apiHost1 = config.apiHost1;
 
     // Event listener for search button - !!Confirm with Paddy that elements are using correct IDs 
     document.getElementById('search-btn').addEventListener('click', function () {
@@ -18,12 +20,12 @@
     // Function to search for songs
     async function searchSong(songQuery) {
     //RapidAPI code snippet for Genius API
-        const url = `https://${apiHost}/search/?q=${songQuery}&per_page=10&page=1`; 
+        const url = `https://${apiHost1}/search/?q=${songQuery}&per_page=10&page=1`; 
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': apiKey,
-                'x-rapidapi-host': apiHost
+                'x-rapidapi-key': apiKey1,
+                'x-rapidapi-host': apiHost1
             }
         };
 
@@ -41,12 +43,12 @@
     // Function to fetch song lyrics by song ID
     //RapidAPI code snippet for Genius API - Song Lyric Search
     async function fetch1SongLyrics(songId) {
-        const url = `https://${apiHost}/song/lyrics/?id=${songId}`; // Construct the API URL here
+        const url = `https://${apiHost1}/song/lyrics/?id=${songId}`; // Construct the API URL here
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': apiKey,
-                'x-rapidapi-host': apiHost
+                'x-rapidapi-key': apiKey1,
+                'x-rapidapi-host': apiHost1
             }
         };
 
