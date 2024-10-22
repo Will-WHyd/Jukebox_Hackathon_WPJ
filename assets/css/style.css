@@ -51,3 +51,21 @@
     margin-left:33vw;
     margin-right: 33vw;
   } */
+
+  #album-cover {
+    max-height: 300px; 
+    max-width: 300px;
+  }
+
+  #band-info {
+    background-color: #25291c;
+    color: white;
+  }
+
+  /* #song-info {
+    background: url('../images/band-info-webp.webp') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    height: 25vh;
+    border-radius: 50px;
+  } */
