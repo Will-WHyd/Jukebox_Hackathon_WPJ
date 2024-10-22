@@ -3,7 +3,7 @@
 
 Jukebox is a site that aims to give music lovers a useful resource for finding information about their favorite songs. The site is targeted to fans of music who want immediate access to song lyrics, atist details, and music videos. Jukebox will be useful to anyone who wants a one-stop resource for lyrics and videos. 
 
-Developed by William Waldron-Hyden, Patrick Ryan, and Jack Brosnan
+Developed by William Waldron-Hyden, Patrick Walsh, and Jack Brosnan
 
 ![Initial balsamiq wireframe](image.png)
 
