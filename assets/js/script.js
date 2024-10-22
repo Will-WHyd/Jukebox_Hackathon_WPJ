@@ -233,3 +233,8 @@ function openModal(videoId) {
 }
 
 window.openModal = openModal;
+
+// Clear iframe src when modal is closed to stop video playback
+document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
+    document.getElementById('videoIframe').src = '';
+});
