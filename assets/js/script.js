@@ -7,18 +7,18 @@
     const apiKey1 = config.apiKey1;
     const apiHost1 = config.apiHost1;
 
-    // Event listener for search button - !!Confirm with Paddy that elements are using correct IDs 
+    // Event listener for the search button click
     document.getElementById('search-btn').addEventListener('click', function () {
-        const songQuery = document.getElementById('search-input').value; // Get user song query
+        const songQuery = document.getElementById('search-input').value;
+        const artistQuery = document.getElementById('artist-input').value; // Get artist input
         
-        // Check if song query exists
         if (songQuery) {
-            searchSong(songQuery, artistQuery); // Call function to search for songs
+            searchSong(songQuery, artistQuery);            
         }
     });
 
     // Function to search for songs
-    async function searchSong(songQuery) {
+    async function searchSong(songQuery, artistQuery) {
     //RapidAPI code snippet for Genius API
         const url = `https://${apiHost1}/search/?q=${songQuery}&per_page=10&page=1`; 
         const options = {
@@ -33,9 +33,11 @@
             const response = await fetch(url, options);
             const data = await response.json(); //Parse result data to JSON
             console.log("Song Data:", data); //Logs results for review in debugger
-            displayResults(data);
+            displayResults(data, songQuery, artistQuery); // Pass both input queries to displaySongs function 
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching song information:", error);
+            document.getElementById('song-info').style.display = 'none'; // Hide container when there is an error
+            document.getElementById('lyrics-content').innerText = 'Error fetching song information';
         }
           
     }
@@ -54,6 +56,11 @@
 
         try {
             const response = await fetch(url, options);
+
+            if (!response.ok) {
+                throw new Error(`An error occurred: ${response.status}`);
+            }
+
             const data = await response.json(); //Parse result data to JSON
             console.log("Lyrics data:", data); //Logs results for review in debugger
         } catch (error) {
