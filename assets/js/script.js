@@ -60,23 +60,23 @@ async function fetchSongLyrics(songId) {
         if (!response.ok) {
             throw new Error(`An error occurred: ${response.status}`);
         }
-        const data = await response.json();//Parse result data to JSON
-        console.log("Lyrics data:", data);//Log results to review in debugger
-        
+        const data = await response.json(); //Parse result data to JSON
+        console.log("Lyrics data:", data); //Log results to review in debugger
+
         const lyricsContainer = document.getElementById('lyrics-content');
 
         if (data.lyrics) {
             const tempDiv = document.createElement("div"); //Create temporary container to remove html elements from lryic data
             tempDiv.innerHTML = data.lyrics.lyrics.body.html; //Add data to tempory div
             lyricsContainer.innerText = tempDiv.innerText; //Use innerText method to remove HTML tags and populate lyric container
-            
-            
+
+
         } else {
             lyricsContainer.innerText = 'Lyrics not available.'; //Message if Lyrics for song does not exist
         }
     } catch (error) {
         console.error("Error fetching song lyrics:", error); //Log error message
-        document.getElementById('lyrics-content').innerText = 'Error fetching lyrics.'; 
+        document.getElementById('lyrics-content').innerText = 'Error fetching lyrics.';
     }
 }
 
@@ -151,4 +151,12 @@ function displayResults(data, songQuery, artistQuery) {
 document.getElementById("toggle-lyrics").addEventListener("click", function () {
     const lyricsContainer = document.getElementById('lyrics-content');
     lyricsContainer.classList.toggle("d-none");
+});
+
+// Toggle artist serach input visibility
+document.getElementById("toggle-artist-query").addEventListener("click", function () {
+    const artistSearchToggle = document.getElementById("toggle-artist-query");
+    const artistSearchInput = document.getElementById('artist-input');
+    artistSearchToggle.classList.toggle("d-none"); //Hides element when box is checked
+    artistSearchInput.classList.toggle("d-none"); //Displays searchbar when box is checked
 });
