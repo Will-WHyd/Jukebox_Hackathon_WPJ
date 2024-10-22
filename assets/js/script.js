@@ -183,5 +183,39 @@ async function searchVideos() {
     const response = await fetch(API_STRING);
     //Convert API data to a usuable format - JSON
     const data = await response.json();
+    console.log(data.items);
     displayVideos(data.items);
+}
+
+// Function to display video search results
+function displayVideos(e) {
+    const videoList = document.getElementById('videoList');
+    videoList.innerHTML = ''; // Clear previous query results
+
+    //Loop through new results and create div element including html
+    e.forEach(video => {
+        const videoId = video.id.videoId;
+        const videoCard = document.createElement('div');
+        videoCard.classList.add('col-12');
+        //Create bootstrap card component and import video data
+        videoCard.innerHTML = `
+                    <div class = "card mb-1" style="max-width: 80%; width: 80%;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="${video.snippet.thumbnails.medium.url}" class="img-fluid rounded-start" alt="${video.snippet.title}" height="100%" width="100%">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h6 class="card-title">${video.snippet.title}</h6>
+                                    <p class="card-text">${video.snippet.description.substring(0, 200)}...</p>                                   
+                                </div>
+                            </div>
+                            <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                                <p>Play</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        videoList.appendChild(videoCard); //adds above div element within 'videoList' div
+    });
 }
