@@ -211,7 +211,7 @@ function displayVideos(e) {
                                 </div>
                             </div>
                             <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
-                                <p>Play</p>
+                                <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
                             </div>
                         </div>
                     </div>
@@ -219,3 +219,17 @@ function displayVideos(e) {
         videoList.appendChild(videoCard); //adds above div element within 'videoList' div
     });
 }
+
+// Function to open the Bootstrap modal and play the selected video
+function openModal(videoId) {
+    const videoIframe = document.getElementById('videoIframe');
+
+    // Set the iframe src to the YouTube URL
+    videoIframe.src = `https://www.youtube.com/embed/${videoId}`;
+
+    // Open the modal
+    const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+    modal.show();
+}
+
+window.openModal = openModal;
