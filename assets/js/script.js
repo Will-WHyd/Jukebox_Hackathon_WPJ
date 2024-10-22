@@ -66,7 +66,10 @@ async function fetchSongLyrics(songId) {
         const lyricsContainer = document.getElementById('lyrics-content');
 
         if (data.lyrics) {
-            lyricsContainer.innerHTML =  data.lyrics.lyrics.body.html; //value includes HTML elements so insert data using innerHTML method
+            const tempDiv = document.createElement("div"); //Create temporary container to remove html elements from lryic data
+            tempDiv.innerHTML = data.lyrics.lyrics.body.html; //Add data to tempory div
+            lyricsContainer.innerText = tempDiv.innerText; //Use innerText method to remove HTML tags and populate lyric container
+            
             
         } else {
             lyricsContainer.innerText = 'Lyrics not available.'; //Message if Lyrics for song does not exist
