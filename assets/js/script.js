@@ -13,6 +13,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
 
     if (songQuery) {
         searchSong(songQuery, artistQuery);
+        searchVideos() // Passes song query
     }
 });
 
@@ -167,3 +168,16 @@ document.getElementById("toggle-artist-query").addEventListener("click", functio
 
 //Youtube API
 
+// Asynchronous Function to search YouTube for videos based on user input
+async function searchVideos() {
+    const query = document.getElementById('search-input').value;
+
+    const API_STRING =
+        // encodeURIComponent used here to replace spaces in user query with corresponding URL safe character
+        `${Host}?part=snippet&maxResults=10&q=${encodeURIComponent(query)}&type=video&key=${API}`;
+
+    const response = await fetch(API_STRING);
+    //Convert API data to a usuable format - JSON
+    const data = await response.json();
+    displayVideos(data.items);
+}
