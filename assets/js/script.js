@@ -19,7 +19,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
 // Function to search for songs
 async function searchSong(songQuery, artistQuery) {
     //RapidAPI code snippet for Genius API
-    const url = `https://${apiHost1}/search/?q=${songQuery}&per_page=10&page=1`;
+    const url = `https://${apiHost1}/search/?q=${encodeURIComponent(songQuery)}&per_page=10&page=1`; //encodeURIComponent function to update non URL safe characters.
     const options = {
         method: 'GET',
         headers: {
