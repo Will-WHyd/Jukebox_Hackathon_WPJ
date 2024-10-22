@@ -15,31 +15,49 @@
 </head>
 
 <body>
-
-    <!--Hero Section with Genius API search and top buttons-->
     <section class="hero-section d-flex flex-column ">
-        <div class="top-buttons  d-flex flex-row justify-content-end ">
-            <button class="btn btn-primary p-2 m-2 ">Login</button>
-        </div>
-
-        <!--Logo-->
-        <div class="d-flex  align-items-end justify-content-center " id="jukebox"><span id="logo-decoration">JUKEBOX</span></div>
+        <div class="container-fluid">
+            <div class="row text-center align-item-center">
 
 
-        <!--Genius API search bars and button-->
-        <div class="d-flex  align-items-center justify-content-center " id="genius-api-container">
-            <div class="genius-api-bar ">
-                <label for="search-type" ></label>
 
-                <input type="text" id="search-input" class="p-2 m-2" placeholder="Enter song name" required>
-                <a href="javascript:void(0)" id="toggle-artist-query">Click here to include artist</a>
-                <input type="text" id="artist-input" class="d-none p-2 m-2" placeholder="Enter artist name (optional)">
-                <button id="search-btn" class="btn btn-primary p-2 m-2">Search</button>
+                <!--Hero Section with Genius API search and top buttons-->
+
+                <div class="top-buttons  col-12 ">
+                    <button class="btn btn-primary p-2 m-2 ">Login</button>
+                </div>
+
+                <!--Logo-->
+                <div class="row">
+                    <div class="col-12" id="jukebox"><span id="logo-decoration"></span>
+                        <h1>JUKEBOX</h1>
+                        </span>
+                    </div>
+                </div>
+
+
+                <!--Genius API search bars and button-->
+                <div class="row">
+                    <div class="col-12 " id="genius-api-container">
+                        <div class="genius-api-bar ">
+                            <label for="search-type"></label>
+
+                            <input type="text" id="search-input" class="p-2 m-2" placeholder="Enter song name" required>
+                            <a href="javascript:void(0)" id="toggle-artist-query">Click here to include artist</a>
+                            <input type="text" id="artist-input" class="d-none p-2 m-2"
+                                placeholder="Enter artist name (optional)">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="find-your-song-text" class="col-12">
+                    <button id="search-btn" class="btn btn-primary p-2 m-2">Search</button>
+                </div>
+
+
             </div>
         </div>
-          
     </section>
-
 
 
     <!--Genius API results section-->
@@ -67,6 +85,7 @@
 
     </section>
 
+    </div>
 
     <!--Bootstrap JS CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
