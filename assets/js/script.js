@@ -164,3 +164,6 @@ document.getElementById("toggle-artist-query").addEventListener("click", functio
     artistSearchToggle.classList.toggle("d-none"); //Hides element when box is checked
     artistSearchInput.classList.toggle("d-none"); //Displays searchbar when box is checked
 });
+
+//Youtube API
+
