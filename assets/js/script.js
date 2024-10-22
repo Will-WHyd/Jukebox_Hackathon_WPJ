@@ -1,6 +1,6 @@
 //GENIUS LYRICS API
 
-import config from './config.js'; // Import configuration
+import config from './config.js'; // API information stored in config.js. File added to gitIgnore.
 
 // API Details
 const apiKey1 = config.apiKey1;
@@ -82,7 +82,11 @@ async function fetchSongLyrics(songId) {
 
 // function to format search query to remove any additional space to improve matching
 function formatString(str) {
-    return str.trim().toLowerCase();
+    return str
+            .toLowerCase() // Convert to lowercase
+            .replace(/[^\w\s]/gi, '') // Remove punctuation and special characters
+            .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
+            .trim(); // Remove leading/trailing spaces
 }
 
 // Function to display search results
