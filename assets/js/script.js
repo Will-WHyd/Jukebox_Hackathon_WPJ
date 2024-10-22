@@ -76,6 +76,11 @@ async function fetchSongLyrics(songId) {
     }
 }
 
+// function to format search query to remove any additional space to improve matching
+function formatString(str) {
+    return str.trim().toLowerCase();
+}
+
 // Function to display search results
 function displayResults(data, songQuery, artistQuery) {
     const songInfoContainer = document.getElementById('song-info');
@@ -86,18 +91,18 @@ function displayResults(data, songQuery, artistQuery) {
     lyricsContainer.style.display = 'none';
 
     if (data.hits && data.hits.length > 0) {
-        // Normalize queries to make them more lenient
-        const normalizedSongQuery = normalizeString(songQuery);
-        const normalizedArtistQuery = artistQuery ? normalizeString(artistQuery) : ''; // Optional
+        // format queries to make them more lenient
+        const formattedSongQuery = formatString(songQuery);
+        const formattedArtistQuery = artistQuery ? formatString(artistQuery) : ''; // format artict query if exists
 
         // Filter results based on the song title and artist name if provided
         const filteredHits = data.hits.filter(hit => {
-            const songTitle = normalizeString(hit.result.title_with_featured);
-            const artistName = normalizeString(hit.result.primary_artist.name);
+            const songTitle = formatString(hit.result.title_with_featured);
+            const artistName = formatString(hit.result.primary_artist.name);
 
             // Check if the song matches and, if an artist is provided, it also matches the artist
-            const songMatches = songTitle.includes(normalizedSongQuery);
-            const artistMatches = artistQuery ? artistName.includes(normalizedArtistQuery) : true;
+            const songMatches = songTitle.includes(formattedSongQuery);
+            const artistMatches = artistQuery ? artistName.includes(formattedArtistQuery) : true;
 
             return songMatches && artistMatches;
         });
