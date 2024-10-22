@@ -152,10 +152,19 @@ function displayResults(data, songQuery, artistQuery) {
     }
 }
 
-// Toggle lyrics visibility
+//Modal open with lyric content displayed
 document.getElementById("toggle-lyrics").addEventListener("click", function () {
-    const lyricsContainer = document.getElementById('lyrics-content');
-    lyricsContainer.classList.toggle("d-none");
+    const lyricsContent = document.getElementById('lyrics-content').innerHTML;
+    const songTitle =  document.getElementById('song-title').innerText;
+
+    // Insert song name and lyric into modal header and body
+    document.getElementById('lyricsModalLabel').innerText = `Lyrics for ${songTitle}`;
+    document.getElementById('lyricsModalBody').innerHTML = lyricsContent;
+
+    // Bootstrap method to show modal
+    const lyricsModal = new bootstrap.Modal(document.getElementById('lyricsModal'));
+    lyricsModal.show();
+    console.log(lyricsContent);
 });
 
 // Toggle artist serach input visibility
@@ -238,3 +247,19 @@ window.openModal = openModal;
 document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
     document.getElementById('videoIframe').src = '';
 });
+
+document.getElementById("show-lyrics").addEventListener('click', function () {
+    const lyricsContainer = document.getElementById("video-lyrics");
+    const lyricsContent = document.getElementById('lyrics-content').innerHTML;
+
+    lyricsContainer.innerHTML = lyricsContent;
+    lyricsContainer.classList.toggle("d-none")
+
+    // Toggle text of button
+    if (this.innerText === "Show Lyrics") {
+        this.innerText = "Hide Lyrics";
+    } else {
+        this.innerText = "Show Lyrics";
+    }
+}
+)
