@@ -62,13 +62,14 @@ async function fetchSongLyrics(songId) {
         }
         const data = await response.json();//Parse result data to JSON
         console.log("Lyrics data:", data);//Log results to review in debugger
+        
+        const lyricsContainer = document.getElementById('lyrics-content');
 
         if (data.lyrics) {
-            const tempContainer = document.createElement('div');
-            tempContainer.innerHTML = data.lyrics.lyrics.body.html; //value includes HTML elements so insert data using innerHTML method
+            lyricsContainer.innerHTML =  data.lyrics.lyrics.body.html; //value includes HTML elements so insert data using innerHTML method
             
         } else {
-            document.getElementById('lyrics-content').innerText = 'Lyrics not available.'; //Message if Lyrics for song does not exist
+            lyricsContainer.innerText = 'Lyrics not available.'; //Message if Lyrics for song does not exist
         }
     } catch (error) {
         console.error("Error fetching song lyrics:", error); //Log error message
@@ -142,3 +143,9 @@ function displayResults(data, songQuery, artistQuery) {
         document.getElementById('lyrics-content').innerText = 'No song results found';
     }
 }
+
+// Toggle lyrics visibility
+document.getElementById("toggle-lyrics").addEventListener("click", function () {
+    const lyricsContainer = document.getElementById('lyrics-content');
+    lyricsContainer.classList.toggle("d-none");
+});
