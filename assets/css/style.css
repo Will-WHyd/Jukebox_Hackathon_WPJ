@@ -1,0 +1,30 @@
+/* .top-buttons {
+    top: 20px;
+    right: 20px;
+    position: absolute;
+  } */
+
+  /* .genius-api-bar {
+    top: 33%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:large;
+  }
+ */
+
+  .hero-section {
+    background: url('../images/vinyl-hero.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+  }
+
+  #genius-api-container {
+    height: 400px;
+    font-size: larger;
+  }
+
+  #toggle-artist-query {
+    color: rgb(255, 255, 255);
+  }
