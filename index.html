@@ -83,9 +83,13 @@
 
     <!--Genius API results section-->
     <section class="genius-api-section container-fluid">
-        <div id="genius-song-card" class="card">
+        <div id="genius-song-card" class="card text-center">
             <div class="row no-gutters">
                 <!-- Display song and lyrics info -->
+                <div class="album-art col-md-6">
+                    <img class="card-img" id="album-cover" alt="Album Cover"
+                        src="assets/images/placeholder_album_art.jpg">
+                </div>
                 <div id="song-info" class="card-body col-md-4">
                     <h2 id="song-title" class="card-title">Test Title</h2>
                     <p id="artist-name" class="card-text">Test Band Name</p>
@@ -95,10 +99,7 @@
                         <div id="lyrics-content" class="d-none"></div>
                     </div>
                 </div>
-                <div class="album-art col-md-6">
-                    <img class="card-img" id="album-cover" alt="Album Cover"
-                        src="assets/images/placeholder_album_art.jpg">
-                </div>
+                
             </div>
         </div>
     </section>
