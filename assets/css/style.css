@@ -14,17 +14,30 @@
  */
 
   .hero-section {
-    background: url('../images/vinyl-hero.jpg') no-repeat center center;
+    background: url('../images/vinyl-hero.webp') no-repeat center center;
     background-size: cover;
     position: relative;
     height: 100vh;
   }
 
   #genius-api-container {
-    height: 400px;
-    font-size: larger;
+    height: 40vh;
+    font-size: 1.5vw;
   }
 
   #toggle-artist-query {
     color: rgb(255, 255, 255);
+  }
+
+  #jukebox {
+    font-size: 10vw;
+    height: 20vh;
+  }
+
+  #logo-decoration {
+    color: #ee6644ff;
+    text-shadow: 1px 1px 0 black,
+               -1px -1px 0 #eef0ebff,
+                1px -1px 0 #eef0ebff,
+               -1px 1px 0 black;
   }
