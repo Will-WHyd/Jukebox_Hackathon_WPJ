@@ -168,13 +168,17 @@ document.getElementById("toggle-artist-query").addEventListener("click", functio
 
 //Youtube API
 
+// API Details
+const apiKey2 = config.apiKey2;
+const apiHost2 = config.apiHost2;
+
 // Asynchronous Function to search YouTube for videos based on user input
 async function searchVideos() {
     const query = document.getElementById('search-input').value;
 
     const API_STRING =
         // encodeURIComponent used here to replace spaces in user query with corresponding URL safe character
-        `${Host}?part=snippet&maxResults=10&q=${encodeURIComponent(query)}&type=video&key=${API}`;
+        `${apiHost2}?part=snippet&maxResults=10&q=${encodeURIComponent(query)}&type=video&key=${apiKey2}`;
 
     const response = await fetch(API_STRING);
     //Convert API data to a usuable format - JSON
