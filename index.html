@@ -60,17 +60,21 @@
                     <div class="genius-api-bar d-flex justify-content-center align-items-center flex-column">
                         <div class="col-8 col-md-12">
                             <label for="search-input">Search Songs</label>
-                            <input type="text" id="search-input" class="form-control p-2 m-2" placeholder="Enter song name" required>
+                            <input type="text" id="search-input" class="form-control p-2 m-2"
+                                placeholder="Enter song name" required>
                         </div>
                         <div class="col-8 col-md-12">
-                            <a href="javascript:void(0)" id="toggle-artist-query" class="btn button-outline-secondary">Click to include artist</a>
+                            <a href="javascript:void(0)" id="toggle-artist-query"
+                                class="btn button-outline-secondary">Click to include artist</a>
                             <input type="text" id="artist-input" class="d-none p-2 m-2"
                                 placeholder="Enter artist name (optional)">
                         </div>
                     </div>
                 </div>
                 <div id="find-your-song-text" class="col-6">
-                    <button id="search-btn" class="btn custom-search-btn p-2 w-100"><h2>Find your song!</h2></button>
+                    <button id="search-btn" class="btn custom-search-btn p-2 w-100">
+                        <h2>Find your song!</h2>
+                    </button>
                 </div>
             </div>
         </div>
@@ -78,17 +82,24 @@
 
 
     <!--Genius API results section-->
-    <section>
-        <!-- Display song and lyrics info -->
-        <div id="song-info">
-            <h2 id="song-title"></h2>
-            <p id="artist-name"></p>
-            <p id="release-date"></p>
-            <img id="album-cover" alt="Album Cover">
-        </div>
-        <div id="lyrics">
-            <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
-            <div id="lyrics-content" class="d-none"></div>
+    <section class="genius-api-section container-fluid">
+        <div id="genius-song-card" class="card">
+            <div class="row no-gutters">
+                <!-- Display song and lyrics info -->
+                <div id="song-info" class="card-body col-md-4">
+                    <h2 id="song-title" class="card-title">Test Title</h2>
+                    <p id="artist-name" class="card-text">Test Band Name</p>
+                    <p id="release-date" class="card-text">Test release date</p>
+                    <div id="lyrics">
+                        <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
+                        <div id="lyrics-content" class="d-none"></div>
+                    </div>
+                </div>
+                <div class="album-art col-md-6">
+                    <img class="card-img" id="album-cover" alt="Album Cover"
+                        src="assets/images/placeholder_album_art.jpg">
+                </div>
+            </div>
         </div>
     </section>
 
