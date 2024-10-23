@@ -95,7 +95,26 @@
                -1px 1px 0 black;
   }
 
-#album-cover {
-  max-width: 400px;
-  max-height: 400px;
-}
+  /* #find-your-song-text {
+    font-size:3vw;
+    font-weight: 600;
+    height: 4vw;
+    background-color: #eef0ebff;
+    box-shadow: 5px 5px 20px white;
+    margin-left:33vw;
+    margin-right: 33vw;
+  } */
+
+
+  #band-info {
+    background-color: #25291c;
+    color: white;
+  }
+
+  /* #song-info {
+    background: url('../images/band-info-webp.webp') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    height: 25vh;
+    border-radius: 50px;
+  } */
