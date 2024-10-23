@@ -12,8 +12,7 @@ function getSongQuery () {
     const artistQuery = document.getElementById('artist-input').value;
     if (songQuery) {
         searchSong(songQuery, artistQuery);
-        searchVideos() // Passes song query
-        clearRadioButtons()
+        searchVideos(true) // Pass true parameter to clear filters and reset radio buttons       
     }
 };
 // Event listener for the search button click
@@ -26,6 +25,13 @@ document.getElementById("search-input").addEventListener('keydown', function (e)
         getSongQuery();
     }
 });
+
+// Function to clear all radio button selections
+function clearRadioButtons() {
+    document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) => {
+        radio.checked = false; // Uncheck each radio button
+    });
+}
 
 // Function to search for songs
 async function searchSong(songQuery, artistQuery) {
@@ -308,12 +314,9 @@ document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) =>
 });
 
 // Function to clear all radio button selections
-function clearRadioButtons() {
-    document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) => {
-        radio.checked = false; // Uncheck each radio button
-        
-    });
-}
+document.getElementById('clear-filter').addEventListener('click', function() {
+    searchVideos(true); // Pass true to clear filters and reset radio buttons
+});
 
 //Add event listener to clear button. Triggers searchVideo() that automatically clears filter
 document.getElementById('clear-filter').addEventListener('click', searchVideos);
