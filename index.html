@@ -36,7 +36,7 @@
         </nav> -->
     </header>
 
-    <section class="hero-section">
+    <section class="hero-section" id="hero-section">
         <div class="hero-container-image">
             <div class="container-fluid">
                 <!--Logo-->
@@ -74,6 +74,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!--Genius API results section-->
     <!-- Display song and lyrics info -->
@@ -163,8 +165,6 @@
                     <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
                 </div>
             </div>
-        </div>
-        <div class = "card mb-1" style="max-width: 80%; width: 80%;"></div>
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start" alt="Default placeholder" height="100%" width="100%">
@@ -179,8 +179,6 @@
                     <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
                 </div>
             </div>
-        </div>
-        <div class = "card mb-1" style="max-width: 80%; width: 80%;"></div>
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start" alt="Default placeholder" height="100%" width="100%">
@@ -199,6 +197,12 @@
 
     </section>
 
+    <section>
+        <div id="back-to-top-arrow">
+            <a href="#hero-section"><i class="fa-solid fa-circle-chevron-up"></i></a>
+        </div>
+    </section>
+
     <!--footer-->
     <section>
 
@@ -211,6 +215,8 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script type="module" src="assets/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/f0ad124e4b.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

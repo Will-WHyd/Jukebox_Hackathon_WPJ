@@ -151,5 +151,15 @@
     border-radius: 50px;
   } */
 
+#back-to-top-arrow {
+  position:fixed;
+  bottom: 10px;
+  right: 5%;
+  font-size: 5rem;
+  /* color: #ee6644ff; */
+}
 
+#back-to-top-arrow i {
+  color:  hsla(12, 83%, 60%, 0.8);
+}
 
