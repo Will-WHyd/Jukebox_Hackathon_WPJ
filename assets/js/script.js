@@ -50,7 +50,15 @@ async function searchSong(songQuery, artistQuery) {
 
         const data = await response.json(); //Parse result data to JSON
         console.log("Song Data:", data); //Logs results for review in debugger
-        displayResults(data, songQuery, artistQuery); // Pass both input queries to displaySongs function 
+        displayResults(data, songQuery, artistQuery); // Pass both input queries to displaySongs function
+        
+        // Scroll to the "s
+        const songInfoSection = document.getElementById('song-info');
+
+        if (songInfoSection) {
+            songInfoSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
+        }        
+
     } catch (error) {
         console.error("Error fetching song information:", error);
         document.getElementById('song-info').style.display = 'none'; // Hide container when there is an error
@@ -231,21 +239,21 @@ function displayVideos(e) {
     e.forEach(video => {
         const videoId = video.id.videoId;
         const videoCard = document.createElement('div');
-        videoCard.classList.add('col-12', 'mb-3', 'd-flex', 'justify-content-center');
+        videoCard.classList.add('col-12', 'col-md-5', 'col-lg-12', 'mb-3', 'd-flex', 'flex-wrap', 'justify-content-center');
         //Create bootstrap card component and import video data
         videoCard.innerHTML = `
-                    <div class = "card mb-1" style="max-width: 80%; width: 80%;">
+                    <div class = "card mb-1">
                         <div class="row g-0">
-                            <div class="col-md-4">
+                            <div class="col-lg-6">
                                 <img src="${video.snippet.thumbnails.medium.url}" class="img-fluid rounded-start" alt="${video.snippet.title}" height="100%" width="100%">
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-lg-5">
                                 <div class="card-body">
                                     <h6 class="card-title">${video.snippet.title}</h6>
                                     <p class="card-text">${video.snippet.description.substring(0, 200)}...</p>                                   
                                 </div>
                             </div>
-                            <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                            <div class="col-lg-1 d-flex justify-content-center align-items-center playbutton-bg">
                                 <a href="javascript:void(0)" onclick="openModal('${videoId}')"><i class="fa-solid fa-play" style="color: #ee6644ff; font-size: 2.5rem;" aria-hidden="true"></i></a>
                             </div>
                         </div>
