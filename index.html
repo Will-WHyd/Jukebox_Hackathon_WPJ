@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        <nav class="navbar">
+        <!-- <nav class="navbar">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-md-4">
@@ -33,47 +33,50 @@
                 </div>
             </div>
             </div>
-        </nav>
+        </nav> -->
     </header>
 
     <section class="hero-section">
-        <div class="container-fluid">
-            <!--Logo-->
-            <div class="row">
-                <div class="col-12 text-center" id="jukebox">
-                    <span id="logo-decoration">
-                        <h1>JUKEBOX</h1>
-                    </span>
-                </div>
-            </div>
-
-            <!--Genius API search bars and button-->
-            <div class="row justify-content-center no-gutters">
-                <div id="genius-api-container" class="col-12 justify-content-center">
-                    <div class="genius-api-bar d-flex justify-content-center align-items-center flex-column">
-                        <div class="col-8 col-md-12">
-                            <label for="search-input">Search Songs</label>
-                            <input type="text" id="search-input" class="form-control p-2 m-2"
-                                placeholder="Enter song name" required>
-                        </div>
-                        <div class="col-8 col-md-12">
-                            <a href="javascript:void(0)" id="toggle-artist-query"
-                                class="btn button-outline-secondary">Click to include artist</a>
-                            <input type="text" id="artist-input" class="d-none p-2 m-2"
-                                placeholder="Enter artist name (optional)">
-                        </div>
+        <div class="hero-container-image">
+            <div class="container-fluid">
+                <!--Logo-->
+                <div class="row">
+                    <div class="col-12 text-center" id="jukebox">
+                        <span id="logo-decoration">
+                            <h1>JUKEBOX</h1>
+                        </span>
                     </div>
                 </div>
-                <div id="find-your-song-text" class="col-6">
-                    <button id="search-btn" class="btn custom-search-btn p-2 w-100">
-                        <h2>Find your song!</h2>
-                    </button>
+
+                <!--Genius API search bars and button-->
+                <div class="row justify-content-center no-gutters">
+                    <div id="genius-api-container" class="col-12 justify-content-center">
+                        <div class="genius-api-bar d-flex justify-content-center align-items-center flex-column">
+                            <div class="col-8 col-md-10">
+                                <label for="search-input"></label>
+                                <input type="text" id="search-input" class="form-control p-2 m-2"
+                                    placeholder="Enter song name" required>
+                            </div>
+                            <div class="col-8 col-md-10">
+                                <a href="javascript:void(0)" id="toggle-artist-query"
+                                    class="btn button-outline-secondary">Click to include artist</a>
+                                <input type="text" id="artist-input" class="d-none p-2 m-2"
+                                    placeholder="Enter artist name (optional)">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="find-your-song-text" class="col-6">
+                        <button id="search-btn" class="btn custom-search-btn p-2 w-100">
+                            <h2>Find your song!</h2>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!--Genius API results section-->
+    <!-- Display song and lyrics info -->
     <section class="genius-api-section container-fluid">
         <div id="genius-song-card" class="card text-center">
             <div class="row no-gutters">
@@ -91,28 +94,6 @@
                         <div id="lyrics-content" class="d-none"></div>
                     </div>
                 </div>
-                
-    <section id="band-info">
-        <!-- Display song and lyrics info -->
-        <div class="container-fluid">
-            <div class="row d-flex align-items-center">
-                <div class="col-6 text-center">
-                    <div id="song-info">
-                        <h2 id="song-title"></h2>
-                        <p id="artist-name"></p>
-                        <p id="release-date"></p>
-                    </div>
-                </div>
-                <div class="col-6 align-items-center">
-                    <img id="album-cover" alt="Album Cover">
-                </div>
-                <div id="lyrics">
-                    <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
-                    <div id="lyrics-content" class="d-none"></div>
-                </div>
-
-            </div>
-        </div>
     </section>
 
     <!--Youtube API results section-->
@@ -142,7 +123,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <div id="video-lyrics" class="d-none"></div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -157,6 +138,61 @@
                     <div class="modal-body mx-auto" id="lyricsModalBody">
 
                     </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="container text-center">
+        <div>
+            <h2>VIDEO TEST</h2>
+        </div>
+        <div class = "card mb-1" style="max-width: 80%; width: 80%;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start" alt="Default placeholder" height="100%" width="100%">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h6 class="card-title">1 Video Title Content 1</h6>
+                        <p class="card-text">Video Snippet Extra Text</p>                                   
+                    </div>
+                </div>
+                <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                    <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
+                </div>
+            </div>
+        </div>
+        <div class = "card mb-1" style="max-width: 80%; width: 80%;"></div>
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start" alt="Default placeholder" height="100%" width="100%">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h6 class="card-title">2 Video Title Content 2</h6>
+                        <p class="card-text">2222 Video Snippet Extra Text 2222</p>                                   
+                    </div>
+                </div>
+                <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                    <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
+                </div>
+            </div>
+        </div>
+        <div class = "card mb-1" style="max-width: 80%; width: 80%;"></div>
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start" alt="Default placeholder" height="100%" width="100%">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <h6 class="card-title">3 Video Title Content 3</h6>
+                        <p class="card-text">3333 Video Snippet Extra Text 3333</p>                                   
+                    </div>
+                </div>
+                <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                    <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
                 </div>
             </div>
         </div>
