@@ -6,14 +6,23 @@ import config from './config.js'; // API information stored in config.js. File a
 const apiKey1 = config.apiKey1;
 const apiHost1 = config.apiHost1;
 
-// Event listener for the search button click
-document.getElementById('search-btn').addEventListener('click', function () {
+//Gets user input from search bar and passes song query to api
+function getSongQuery () {
     const songQuery = document.getElementById('search-input').value;
-    const artistQuery = document.getElementById('artist-input').value; // Get artist input
-
+    const artistQuery = document.getElementById('artist-input').value;
     if (songQuery) {
         searchSong(songQuery, artistQuery);
         searchVideos() // Passes song query
+    }
+};
+// Event listener for the search button click
+document.getElementById('search-btn').addEventListener('click', function () {
+    getSongQuery();
+});
+//Event listener for enter key to submit song
+document.getElementById("search-input").addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+        getSongQuery();
     }
 });
 
