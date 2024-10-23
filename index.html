@@ -37,37 +37,39 @@
     </header>
 
     <section class="hero-section">
-        <div class="container-fluid">
-            <!--Logo-->
-            <div class="row">
-                <div class="col-12 text-center" id="jukebox">
-                    <span id="logo-decoration">
-                        <h1>JUKEBOX</h1>
-                    </span>
-                </div>
-            </div>
-
-            <!--Genius API search bars and button-->
-            <div class="row justify-content-center no-gutters">
-                <div id="genius-api-container" class="col-12 justify-content-center">
-                    <div class="genius-api-bar d-flex justify-content-center align-items-center flex-column">
-                        <div class="col-8 col-md-10">
-                            <label for="search-input"></label>
-                            <input type="text" id="search-input" class="form-control p-2 m-2"
-                                placeholder="Enter song name" required>
-                        </div>
-                        <div class="col-8 col-md-10">
-                            <a href="javascript:void(0)" id="toggle-artist-query"
-                                class="btn button-outline-secondary">Click to include artist</a>
-                            <input type="text" id="artist-input" class="d-none p-2 m-2"
-                                placeholder="Enter artist name (optional)">
-                        </div>
+        <div class="hero-container-image">
+            <div class="container-fluid">
+                <!--Logo-->
+                <div class="row">
+                    <div class="col-12 text-center" id="jukebox">
+                        <span id="logo-decoration">
+                            <h1>JUKEBOX</h1>
+                        </span>
                     </div>
                 </div>
-                <div id="find-your-song-text" class="col-6">
-                    <button id="search-btn" class="btn custom-search-btn p-2 w-100">
-                        <h2>Find your song!</h2>
-                    </button>
+
+                <!--Genius API search bars and button-->
+                <div class="row justify-content-center no-gutters">
+                    <div id="genius-api-container" class="col-12 justify-content-center">
+                        <div class="genius-api-bar d-flex justify-content-center align-items-center flex-column">
+                            <div class="col-8 col-md-10">
+                                <label for="search-input"></label>
+                                <input type="text" id="search-input" class="form-control p-2 m-2"
+                                    placeholder="Enter song name" required>
+                            </div>
+                            <div class="col-8 col-md-10">
+                                <a href="javascript:void(0)" id="toggle-artist-query"
+                                    class="btn button-outline-secondary">Click to include artist</a>
+                                <input type="text" id="artist-input" class="d-none p-2 m-2"
+                                    placeholder="Enter artist name (optional)">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="find-your-song-text" class="col-6">
+                        <button id="search-btn" class="btn custom-search-btn p-2 w-100">
+                            <h2>Find your song!</h2>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,27 +91,10 @@
                     <p id="release-date" class="card-text">Test release date</p>
                     <div id="lyrics">
                         <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
-                        <div id="lyrics-content" class="d-none"></div> 
+                        <div id="lyrics-content" class="d-none"></div>
                     </div>
                 </div>
-                
-    <!-- <section id="band-info"> //Display song and lyrics info
-        <div class="container-fluid">
-            <div class="row d-flex align-items-center">
-                <div class="col-6 text-center">
-                    <div id="song-info">
-                        <h2 id="song-title"></h2>
-                        <p id="artist-name"></p>
-                        <p id="release-date"></p>
-                    </div>
-                </div>
-                <div class="col-6 align-items-center">
-                    <img id="album-cover" alt="Album Cover">
-                </div>
-
-            </div>
-        </div>
-    </section> -->
+    </section>
 
     <!--Youtube API results section-->
     <section>
@@ -138,7 +123,7 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <div id="video-lyrics" class="d-none"></div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
