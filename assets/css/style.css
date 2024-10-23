@@ -135,6 +135,8 @@
   #album-cover { 
     max-height: 600px; 
     max-width: 600px;
+    min-height: 200px;
+    min-width: 200px;
   }
 
 
@@ -145,18 +147,22 @@
 
   #song-info {
     color: white;
-    background: url('../images/cd-back1.webp') no-repeat center center;
+    background: url('../images/cd-back-2.webp') no-repeat center center;
     background-size: cover;
+    /* font-size: clamp(1rem, 2vw, 2rem); */
+    min-height: 200px;
+    min-width: 200px;
     max-height: 600px; 
-    max-width: 600px;
-    margin-left: 6%;
-    padding-top: 9vh;
-    font-size: 5vh;
+    max-width: 600px; 
+    object-fit: cover; width: 100%; height: auto;
+    /* margin-left: 6%; */
+    /* padding-top: 9vh;  */
     /* margin-right: 5%; */
+    /* object-fit: cover; */
     /* position: relative; */
-    /* height: 25vh; */
-    /* border-radius: 50px; */
-  }
+    /* height: 25vh;  */
+    
+  }   
 
  
 
