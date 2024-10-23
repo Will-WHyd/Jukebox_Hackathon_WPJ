@@ -13,19 +13,45 @@
   }
  */
 
+ body {
+  background: url('../images/vinyl-hero.webp') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 0;
+ }
+
   .hero-section {
-    background: url('../images/vinyl-hero.webp') no-repeat center center;
+    /* background: url('../images/vinyl-hero.webp') no-repeat center center; */
     background-size: cover;
     position: relative;
-    height: 100vh;
+    /* height: 100vh; */
   }
+
+  .hero-container-image {
+    /* height: 100vh; */
+    background: url('../images/vinyl-hero.webp') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 0;
+    padding: 10vh;
+
+
+}
 
   #genius-api-container {
-    /* height: 40vh;  fixed height not needed for search bar*/
+    height: 20vh;  /* fixed height not needed for search bar*/
     font-size: 1.5vw;
-    padding: 20px;
+    
   }
 
+  #genius-song-card {
+    padding: 10vh;
+    margin: 10vh;
+  }
   
 
   /* Text style updates */
