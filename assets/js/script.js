@@ -13,6 +13,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
 
     if (songQuery) {
         searchSong(songQuery, artistQuery);
+        searchVideos() // Passes song query
     }
 });
 
@@ -151,10 +152,19 @@ function displayResults(data, songQuery, artistQuery) {
     }
 }
 
-// Toggle lyrics visibility
+//Modal open with lyric content displayed
 document.getElementById("toggle-lyrics").addEventListener("click", function () {
-    const lyricsContainer = document.getElementById('lyrics-content');
-    lyricsContainer.classList.toggle("d-none");
+    const lyricsContent = document.getElementById('lyrics-content').innerHTML;
+    const songTitle =  document.getElementById('song-title').innerText;
+
+    // Insert song name and lyric into modal header and body
+    document.getElementById('lyricsModalLabel').innerText = `Lyrics for ${songTitle}`;
+    document.getElementById('lyricsModalBody').innerHTML = lyricsContent;
+
+    // Bootstrap method to show modal
+    const lyricsModal = new bootstrap.Modal(document.getElementById('lyricsModal'));
+    lyricsModal.show();
+    console.log(lyricsContent);
 });
 
 // Toggle artist serach input visibility
@@ -164,3 +174,92 @@ document.getElementById("toggle-artist-query").addEventListener("click", functio
     artistSearchToggle.classList.toggle("d-none"); //Hides element when box is checked
     artistSearchInput.classList.toggle("d-none"); //Displays searchbar when box is checked
 });
+
+//Youtube API
+
+// API Details
+const apiKey2 = config.apiKey2;
+const apiHost2 = config.apiHost2;
+
+// Asynchronous Function to search YouTube for videos based on user input
+async function searchVideos() {
+    const query = document.getElementById('search-input').value;
+
+    const API_STRING =
+        // encodeURIComponent used here to replace spaces in user query with corresponding URL safe character
+        `${apiHost2}?part=snippet&maxResults=10&q=${encodeURIComponent(query)}&type=video&key=${apiKey2}`;
+
+    const response = await fetch(API_STRING);
+    //Convert API data to a usuable format - JSON
+    const data = await response.json();
+    console.log(data.items);
+    displayVideos(data.items);
+}
+
+// Function to display video search results
+function displayVideos(e) {
+    const videoList = document.getElementById('videoList');
+    videoList.innerHTML = ''; // Clear previous query results
+
+    //Loop through new results and create div element including html
+    e.forEach(video => {
+        const videoId = video.id.videoId;
+        const videoCard = document.createElement('div');
+        videoCard.classList.add('col-12');
+        //Create bootstrap card component and import video data
+        videoCard.innerHTML = `
+                    <div class = "card mb-1" style="max-width: 80%; width: 80%;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="${video.snippet.thumbnails.medium.url}" class="img-fluid rounded-start" alt="${video.snippet.title}" height="100%" width="100%">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h6 class="card-title">${video.snippet.title}</h6>
+                                    <p class="card-text">${video.snippet.description.substring(0, 200)}...</p>                                   
+                                </div>
+                            </div>
+                            <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                                <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        videoList.appendChild(videoCard); //adds above div element within 'videoList' div
+    });
+}
+
+// Function to open the Bootstrap modal and play the selected video
+function openModal(videoId) {
+    const videoIframe = document.getElementById('videoIframe');
+
+    // Set the iframe src to the YouTube URL
+    videoIframe.src = `https://www.youtube.com/embed/${videoId}`;
+
+    // Open the modal
+    const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+    modal.show();
+}
+
+window.openModal = openModal;
+
+// Clear iframe src when modal is closed to stop video playback
+document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
+    document.getElementById('videoIframe').src = '';
+});
+
+document.getElementById("show-lyrics").addEventListener('click', function () {
+    const lyricsContainer = document.getElementById("video-lyrics");
+    const lyricsContent = document.getElementById('lyrics-content').innerHTML;
+
+    lyricsContainer.innerHTML = lyricsContent;
+    lyricsContainer.classList.toggle("d-none")
+
+    // Toggle text of button
+    if (this.innerText === "Show Lyrics") {
+        this.innerText = "Hide Lyrics";
+    } else {
+        this.innerText = "Show Lyrics";
+    }
+}
+)

@@ -52,7 +52,7 @@
     margin-right: 33vw;
   } */
 
-  #album-cover {
+  #album-cover { 
     max-height: 300px; 
     max-width: 300px;
   }
@@ -69,3 +69,4 @@
     height: 25vh;
     border-radius: 50px;
   } */
+
