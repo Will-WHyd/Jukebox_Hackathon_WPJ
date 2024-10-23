@@ -219,7 +219,7 @@ async function searchVideos(clearFilter = false) {
         selectedFilter = ''; // Reset selected filter when starting a new search
     }
 
-    const fullQuery = selectedFilter ? `${query} ${selectedFilter}` : query; //checks if filter option is selected
+    const fullQuery = selectedFilter ? `song ${query} ${selectedFilter}` : `song ${query}`; //checks if filter option is selected
 
     const API_STRING =
         // encodeURIComponent used here to replace spaces in user query with corresponding URL safe character
