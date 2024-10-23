@@ -6,23 +6,20 @@ import config from './config.js'; // API information stored in config.js. File a
 const apiKey1 = config.apiKey1;
 const apiHost1 = config.apiHost1;
 
-
 //Gets user input from search bar and passes song query to api
 function getSongQuery () {
     const songQuery = document.getElementById('search-input').value;
     const artistQuery = document.getElementById('artist-input').value;
-
     if (songQuery) {
         searchSong(songQuery, artistQuery);
         searchVideos() // Passes song query
+        clearRadioButtons()
     }
 };
-
 // Event listener for the search button click
 document.getElementById('search-btn').addEventListener('click', function () {
     getSongQuery();
 });
-
 //Event listener for enter key to submit song
 document.getElementById("search-input").addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
@@ -197,12 +194,20 @@ const apiKey2 = config.apiKey2;
 const apiHost2 = config.apiHost2;
 
 // Asynchronous Function to search YouTube for videos based on user input
-async function searchVideos() {
+async function searchVideos(clearFilter = false) {
     const query = document.getElementById('search-input').value;
+
+    // Clear the filter and reset radio buttons only if it's a new search query
+  if (clearFilter) {
+    clearRadioButtons();   // Clear radio buttons on new search
+    selectedFilter = '';   // Reset selected filter when starting a new search
+    }
+
+    const fullQuery = selectedFilter ? `${query} ${selectedFilter}` : query; //checks if filter option is selected
 
     const API_STRING =
         // encodeURIComponent used here to replace spaces in user query with corresponding URL safe character
-        `${apiHost2}?part=snippet&maxResults=10&q=${encodeURIComponent(query)}&type=video&key=${apiKey2}`;
+        `${apiHost2}?part=snippet&maxResults=10&q=${encodeURIComponent(fullQuery)}&type=video&key=${apiKey2}`;
 
     const response = await fetch(API_STRING);
     //Convert API data to a usuable format - JSON
@@ -280,7 +285,6 @@ document.getElementById("show-lyrics").addEventListener('click', function () {
 
 
 // Reveal up arrow when user scrolls down
-
 let topArrowButton = document.getElementById("back-to-top-arrow");
 window.onscroll = function() {revealTopArrow()};
 
@@ -290,4 +294,26 @@ function revealTopArrow() {
     } else {
         topArrowButton.style.display = "none";
     }
+};
+
+let selectedFilter = ''; // Holds the filter type based on the selected radio button
+
+// Add event listeners to radio buttons to trigger search when clicked
+document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) => {
+    radio.addEventListener('change', function () {
+        // Get the custom data-type attribute value from the selected radio button
+        selectedFilter = this.getAttribute('data-type');
+        searchVideos(false); // Refresh search results, but don't clear the filter
+    });
+});
+
+// Function to clear all radio button selections
+function clearRadioButtons() {
+    document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) => {
+        radio.checked = false; // Uncheck each radio button
+        
+    });
 }
+
+//Add event listener to clear button. Triggers searchVideo() that automatically clears filter
+document.getElementById('clear-filter').addEventListener('click', searchVideos);
