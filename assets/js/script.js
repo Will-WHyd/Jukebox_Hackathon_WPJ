@@ -65,8 +65,10 @@ async function fetchSongLyrics(songId) {
         console.log("Lyrics data:", data); //Log results to review in debugger
 
         const lyricsContainer = document.getElementById('lyrics-content');
+        
 
         if (data.lyrics) {
+            lyricsContainer.innerHTML = "";
             const tempDiv = document.createElement("div"); //Create temporary container to remove html elements from lryic data
             tempDiv.innerHTML = data.lyrics.lyrics.body.html; //Add data to tempory div
             lyricsContainer.innerText = tempDiv.innerText; //Use innerText method to remove HTML tags and populate lyric container
