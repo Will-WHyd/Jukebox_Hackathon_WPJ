@@ -225,7 +225,7 @@ function displayVideos(e) {
     e.forEach(video => {
         const videoId = video.id.videoId;
         const videoCard = document.createElement('div');
-        videoCard.classList.add('col-12');
+        videoCard.classList.add('col-12', 'mb-3', 'd-flex', 'justify-content-center');
         //Create bootstrap card component and import video data
         videoCard.innerHTML = `
                     <div class = "card mb-1" style="max-width: 80%; width: 80%;">
@@ -240,7 +240,7 @@ function displayVideos(e) {
                                 </div>
                             </div>
                             <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
-                                <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
+                                <a href="javascript:void(0)" onclick="openModal('${videoId}')"><i class="fa-solid fa-play" style="color: #ee6644ff; font-size: 2.5rem;" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
