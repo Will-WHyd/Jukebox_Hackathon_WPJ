@@ -91,90 +91,131 @@
                         <div id="lyrics-content" class="d-none"></div>
                     </div>
                 </div>
-                
-    <section id="band-info">
-        <!-- Display song and lyrics info -->
-        <div class="container-fluid">
-            <div class="row d-flex align-items-center">
-                <div class="col-6 text-center">
-                    <div id="song-info">
-                        <h2 id="song-title"></h2>
-                        <p id="artist-name"></p>
-                        <p id="release-date"></p>
+
+                <section id="band-info">
+                    <!-- Display song and lyrics info -->
+                    <div class="container-fluid">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-6 text-center">
+                                <div id="song-info">
+                                    <h2 id="song-title"></h2>
+                                    <p id="artist-name"></p>
+                                    <p id="release-date"></p>
+                                </div>
+                            </div>
+                            <div class="col-6 align-items-center">
+                                <img id="album-cover" alt="Album Cover">
+                            </div>
+                            <div id="lyrics">
+                                <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
+                                <div id="lyrics-content" class="d-none"></div>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 align-items-center">
-                    <img id="album-cover" alt="Album Cover">
-                </div>
-                <div id="lyrics">
-                    <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
-                    <div id="lyrics-content" class="d-none"></div>
-                </div>
+                </section>
+
+                <!--Youtube API results section-->
+                <section>
+
+                    <div class="container mt-4">
+                        <!-- Video List Section-->
+                        <div class="row d-flex justify-content-center my-2">
+                            <div class="col-12 d-flex justify-content-center align-items-center bg-light">
+                                <!-- Bootstrap inline radio buttons. Used for filtering and refreshing API results -->
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="filter-live" data-type="live-performance" value="option1">
+                                    <label class="form-check-label" for="live-performance">Live Performance</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="filter-cover" data-type="cover-version" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">Cover Version</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <span class="pe-2"><strong>Lessons:</strong></span>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="filter-guitarlesson" data-type="guitar-lesson" value="option3">
+                                    <label class="form-check-label" for="inlineRadio3">Guitar</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="filter-pianolesson" data-type="piano-lesson" value="option3">
+                                    <label class="form-check-label" for="inlineRadio3">Piano</label>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="container text-center">
+                        <h2>Video List</h2>
+                    </div>
+                    <div class="container mt-4">
+                        <div class="row d-flex justify-content-center mb-2">
+                            <div id="videoList" class="col-md-10"></div>
+                        </div>
+                    </div>
+
+                    <!-- Bootstrap Modal "fade" class to play videos -->
+                    <div class="modal fade" tabindex="-1" id="videoModal" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Now Playing...</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" id="modalBody">
+                                    <!-- YouTube iFrame. Javascript used to update value in "src" attribute -->
+                                    <iframe id="videoIframe" width="100%" height="400" src="" frameborder="0"
+                                        allowfullscreen></iframe>
+                                    <button type="button" id="show-lyrics" class="btn btn-primary">Show
+                                        Lyrics</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <div id="video-lyrics" class="d-none"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lyrics Modal -->
+                    <div class="modal fade" id="lyricsModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header mx-auto">
+                                    <h5 class="modal-title" id="lyricsModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body mx-auto" id="lyricsModalBody">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!--footer-->
+                <section>
+
+                </section>
 
             </div>
-        </div>
-    </section>
 
-    <!--Youtube API results section-->
-    <section>
-        <div class="container text-center">
-            <h2>Video List</h2>
-        </div>
-        <div class="container mt-4">
-            <div class="row d-flex justify-content-center mb-2">
-                <div id="videoList" class="col-md-10"></div>
-            </div>
-        </div>
-
-        <!-- Bootstrap Modal "fade" class to play videos -->
-        <div class="modal fade" tabindex="-1" id="videoModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Now Playing...</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="modalBody">
-                        <!-- YouTube iFrame. Javascript used to update value in "src" attribute -->
-                        <iframe id="videoIframe" width="100%" height="400" src="" frameborder="0"
-                            allowfullscreen></iframe>
-                        <button type="button" id="show-lyrics" class="btn btn-primary">Show Lyrics</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <div id="video-lyrics" class="d-none"></div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-        <!-- Lyrics Modal -->
-        <div class="modal fade" id="lyricsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header mx-auto">
-                        <h5 class="modal-title" id="lyricsModalLabel"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body mx-auto" id="lyricsModalBody">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!--footer-->
-    <section>
-
-    </section>
-
-    </div>
-
-    <!--Bootstrap JS CDN-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-    <script type="module" src="assets/js/script.js"></script>
+            <!--Bootstrap JS CDN-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                crossorigin="anonymous">
+            </script>
+            <script type="module" src="assets/js/script.js"></script>
 </body>
 
 </html>
