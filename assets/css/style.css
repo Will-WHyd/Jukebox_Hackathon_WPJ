@@ -106,6 +106,12 @@
   } */
 
 
+  #album-cover { 
+    max-height: 300px; 
+    max-width: 300px;
+  }
+
+
   #band-info {
     background-color: #25291c;
     color: white;
@@ -118,3 +124,6 @@
     height: 25vh;
     border-radius: 50px;
   } */
+
+
+
