@@ -225,7 +225,7 @@ function displayVideos(e) {
     e.forEach(video => {
         const videoId = video.id.videoId;
         const videoCard = document.createElement('div');
-        videoCard.classList.add('col-12');
+        videoCard.classList.add('col-12', 'mb-3', 'd-flex', 'justify-content-center');
         //Create bootstrap card component and import video data
         videoCard.innerHTML = `
                     <div class = "card mb-1" style="max-width: 80%; width: 80%;">
