@@ -133,33 +133,38 @@
                 <h2>Jukebox Jams: Watch Related Videos</h2>
             </div>
 
-            <div id="filter-buttons" class="mb-2 py-2">
+            <div id="filter-buttons" class="mb-2 py-2 d-none d-md-block">
                 <!-- Video List Section-->
                 <div class="row d-flex justify-content-center">
                     <div class="col-12 d-flex justify-content-center align-items-center">
                         <!-- Bootstrap inline radio buttons. Used for filtering and refreshing API results -->
-                        <div class="d-none d-md-block">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-live" data-type="live-performance" value="option1">
-                                <label class="form-check-label" for="filter-live">Live Performance</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-cover" data-type="cover-version" value="option2">
-                                <label class="form-check-label" for="filter-cover">Cover Version</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <span class="pe-2"><strong>Lessons:</strong></span>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-guitarlesson" data-type="guitar-lesson" value="option3">
-                                <label class="form-check-label" for="filter-guitarlesson">Guitar</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-pianolesson" data-type="piano-lesson" value="option4">
-                                <label class="form-check-label" for="filter-pianolesson">Piano</label>
-                            </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-live"
+                                data-type="live-performance" value="option1">
+                            <label class="form-check-label" for="filter-live">Live Performance</label>
                         </div>
-                        <a href="javascript:void(0)" id="clear-filter">Clear Filter</a>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-cover"
+                                data-type="cover-version" value="option2">
+                            <label class="form-check-label" for="filter-cover">Cover Version</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <span class="pe-2"><strong>Lessons:</strong></span>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                id="filter-guitarlesson" data-type="guitar-lesson" value="option3">
+                            <label class="form-check-label" for="filter-guitarlesson">Guitar</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                id="filter-pianolesson" data-type="piano-lesson" value="option4">
+                            <label class="form-check-label" for="filter-pianolesson">Piano</label>
+                        </div>
+
+                        <a href="javascript:void(0)" id="clear-filter" class="d-none d-md-block"
+                            onclick="clearFilter()">Clear Filter</a>
                     </div>
                 </div>
             </div>
@@ -175,7 +180,7 @@
                     <option value="piano-lesson">Piano Lesson</option>
                 </select>
             </div>
-            
+
 
             <div>
                 <div class="row d-flex justify-content-center">

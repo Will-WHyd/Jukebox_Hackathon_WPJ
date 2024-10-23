@@ -344,10 +344,16 @@ document.getElementById('filter-dropdown').addEventListener('change', function (
 });
 
 
-// Function to clear all radio button selections
-document.getElementById('clear-filter').addEventListener('click', function () {
+// // Function to clear all radio button selections
+// document.getElementById('clear-filter').addEventListener('click', function () {
+//     searchVideos(true); // Pass true to clear filters and reset radio buttons
+// });
+
+function clearFilter () {
     searchVideos(true); // Pass true to clear filters and reset radio buttons
-});
+};
+
+window.clearFilter = clearFilter; // Attach to window object
 
 //Add event listener to clear button. Triggers searchVideo() that automatically clears filter
 // document.getElementById('clear-filter').addEventListener('click', searchVideos);
