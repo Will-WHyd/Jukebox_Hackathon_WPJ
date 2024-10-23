@@ -66,17 +66,26 @@
 
 
     <!--Genius API results section-->
-    <section>
+    <section id="band-info">
         <!-- Display song and lyrics info -->
-        <div id="song-info">
-            <h2 id="song-title"></h2>
-            <p id="artist-name"></p>
-            <p id="release-date"></p>
-            <img id="album-cover" alt="Album Cover">
-        </div>
-        <div id="lyrics">
-            <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
-            <div id="lyrics-content" class="d-none"></div>
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center">
+                <div class="col-6 text-center">
+                    <div id="song-info">
+                        <h2 id="song-title"></h2>
+                        <p id="artist-name"></p>
+                        <p id="release-date"></p>
+                    </div>
+                </div>
+                <div class="col-6 align-items-center">
+                    <img id="album-cover" alt="Album Cover">
+                </div>
+                <div id="lyrics">
+                    <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
+                    <div id="lyrics-content" class="d-none"></div>
+                </div>
+
+            </div>
         </div>
     </section>
 
