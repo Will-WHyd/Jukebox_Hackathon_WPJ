@@ -240,7 +240,7 @@ function displayVideos(e) {
                                 </div>
                             </div>
                             <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
-                                <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
+                                <a href="javascript:void(0)" onclick="openModal('${videoId}')"><i class="fa-solid fa-play" style="color: #ee6644ff; font-size: 2.5rem;" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
