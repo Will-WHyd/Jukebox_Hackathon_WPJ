@@ -7,7 +7,7 @@ const apiKey1 = config.apiKey1;
 const apiHost1 = config.apiHost1;
 
 //Gets user input from search bar and passes song query to api
-function getSongQuery () {
+function getSongQuery() {
     const songQuery = document.getElementById('search-input').value;
     const artistQuery = document.getElementById('artist-input').value;
     if (songQuery) {
@@ -51,13 +51,15 @@ async function searchSong(songQuery, artistQuery) {
         const data = await response.json(); //Parse result data to JSON
         console.log("Song Data:", data); //Logs results for review in debugger
         displayResults(data, songQuery, artistQuery); // Pass both input queries to displaySongs function
-        
+
         // Scroll to the "s
         const songInfoSection = document.getElementById('song-info');
 
         if (songInfoSection) {
-            songInfoSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the section
-        }        
+            songInfoSection.scrollIntoView({
+                behavior: 'smooth'
+            }); // Smooth scroll to the section
+        }
 
     } catch (error) {
         console.error("Error fetching song information:", error);
@@ -212,9 +214,9 @@ async function searchVideos(clearFilter = false) {
     const query = document.getElementById('search-input').value;
 
     // Clear the filter and reset radio buttons only if it's a new search query
-  if (clearFilter) {
-    clearRadioButtons();   // Clear radio buttons on new search
-    selectedFilter = '';   // Reset selected filter when starting a new search
+    if (clearFilter) {
+        clearRadioButtons(); // Clear radio buttons on new search
+        selectedFilter = ''; // Reset selected filter when starting a new search
     }
 
     const fullQuery = selectedFilter ? `${query} ${selectedFilter}` : query; //checks if filter option is selected
@@ -239,21 +241,21 @@ function displayVideos(e) {
     e.forEach(video => {
         const videoId = video.id.videoId;
         const videoCard = document.createElement('div');
-        videoCard.classList.add('col-12', 'col-md-5', 'col-lg-12', 'mb-3', 'd-flex', 'flex-wrap', 'justify-content-center');
+        videoCard.classList.add('col-12', 'mb-3', 'd-flex', 'justify-content-center');
         //Create bootstrap card component and import video data
         videoCard.innerHTML = `
-                    <div class = "card mb-1">
+                    <div class = "card mb-1" style="max-width: 80%; width: 80%;">
                         <div class="row g-0">
-                            <div class="col-lg-6">
+                            <div class="col-md-4">
                                 <img src="${video.snippet.thumbnails.medium.url}" class="img-fluid rounded-start" alt="${video.snippet.title}" height="100%" width="100%">
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-md-7">
                                 <div class="card-body">
                                     <h6 class="card-title">${video.snippet.title}</h6>
                                     <p class="card-text">${video.snippet.description.substring(0, 200)}...</p>                                   
                                 </div>
                             </div>
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center playbutton-bg">
+                            <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
                                 <a href="javascript:void(0)" onclick="openModal('${videoId}')"><i class="fa-solid fa-play" style="color: #ee6644ff; font-size: 2.5rem;" aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -300,7 +302,9 @@ document.getElementById("show-lyrics").addEventListener('click', function () {
 
 // Reveal up arrow when user scrolls down
 let topArrowButton = document.getElementById("back-to-top-arrow");
-window.onscroll = function() {revealTopArrow()};
+window.onscroll = function () {
+    revealTopArrow()
+};
 
 function revealTopArrow() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -322,7 +326,7 @@ document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) =>
 });
 
 // Function to clear all radio button selections
-document.getElementById('clear-filter').addEventListener('click', function() {
+document.getElementById('clear-filter').addEventListener('click', function () {
     searchVideos(true); // Pass true to clear filters and reset radio buttons
 });
 

@@ -174,9 +174,19 @@ input[type="text"]:focus {
 #filter-buttons {
   background-color: #000000;
   color: #ffffff;
-  
+
 }
 
+/* YouTube Videos */
+#video-container {
+  background-color: hsla(12, 83%, 60%, 0.8);
+}
+
+/* Section colors */
+
+.bg-orange {
+  background-color: hsla(12, 83%, 60%, 0.8);
+}
 
 
 @media screen and (min-width: 768px) {
