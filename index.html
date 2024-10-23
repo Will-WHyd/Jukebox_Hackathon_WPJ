@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        <nav class="navbar">
+        <!-- <nav class="navbar">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-md-4">
@@ -33,7 +33,7 @@
                 </div>
             </div>
             </div>
-        </nav>
+        </nav> -->
     </header>
 
     <section class="hero-section">
@@ -51,12 +51,12 @@
             <div class="row justify-content-center no-gutters">
                 <div id="genius-api-container" class="col-12 justify-content-center">
                     <div class="genius-api-bar d-flex justify-content-center align-items-center flex-column">
-                        <div class="col-8 col-md-12">
-                            <label for="search-input">Search Songs</label>
+                        <div class="col-8 col-md-10">
+                            <label for="search-input"></label>
                             <input type="text" id="search-input" class="form-control p-2 m-2"
                                 placeholder="Enter song name" required>
                         </div>
-                        <div class="col-8 col-md-12">
+                        <div class="col-8 col-md-10">
                             <a href="javascript:void(0)" id="toggle-artist-query"
                                 class="btn button-outline-secondary">Click to include artist</a>
                             <input type="text" id="artist-input" class="d-none p-2 m-2"
@@ -74,6 +74,7 @@
     </section>
 
     <!--Genius API results section-->
+    <!-- Display song and lyrics info -->
     <section class="genius-api-section container-fluid">
         <div id="genius-song-card" class="card text-center">
             <div class="row no-gutters">
@@ -88,12 +89,11 @@
                     <p id="release-date" class="card-text">Test release date</p>
                     <div id="lyrics">
                         <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
-                        <div id="lyrics-content" class="d-none"></div>
+                        <div id="lyrics-content" class="d-none"></div> 
                     </div>
                 </div>
                 
-    <section id="band-info">
-        <!-- Display song and lyrics info -->
+    <!-- <section id="band-info"> //Display song and lyrics info
         <div class="container-fluid">
             <div class="row d-flex align-items-center">
                 <div class="col-6 text-center">
@@ -106,15 +106,10 @@
                 <div class="col-6 align-items-center">
                     <img id="album-cover" alt="Album Cover">
                 </div>
-                <!-- <div id="lyrics">
-                    Older lyrics section outside of card. New functionality includes modal popup lyrics.
-                    <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
-                    <div id="lyrics-content" class="d-none"></div>
-                </div> -->
 
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!--Youtube API results section-->
     <section>

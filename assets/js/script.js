@@ -6,14 +6,27 @@ import config from './config.js'; // API information stored in config.js. File a
 const apiKey1 = config.apiKey1;
 const apiHost1 = config.apiHost1;
 
-// Event listener for the search button click
-document.getElementById('search-btn').addEventListener('click', function () {
+
+//Gets user input from search bar and passes song query to api
+function getSongQuery () {
     const songQuery = document.getElementById('search-input').value;
-    const artistQuery = document.getElementById('artist-input').value; // Get artist input
+    const artistQuery = document.getElementById('artist-input').value;
 
     if (songQuery) {
         searchSong(songQuery, artistQuery);
         searchVideos() // Passes song query
+    }
+};
+
+// Event listener for the search button click
+document.getElementById('search-btn').addEventListener('click', function () {
+    getSongQuery();
+});
+
+//Event listener for enter key to submit song
+document.getElementById("search-input").addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+        getSongQuery();
     }
 });
 
@@ -65,7 +78,7 @@ async function fetchSongLyrics(songId) {
         console.log("Lyrics data:", data); //Log results to review in debugger
 
         const lyricsContainer = document.getElementById('lyrics-content');
-        
+
 
         if (data.lyrics) {
             lyricsContainer.innerHTML = "";
@@ -86,10 +99,10 @@ async function fetchSongLyrics(songId) {
 // function to format search query to remove any additional space to improve matching
 function formatString(str) {
     return str
-            .toLowerCase() // Convert to lowercase
-            .replace(/[^\w\s]/gi, '') // Remove punctuation and special characters
-            .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
-            .trim(); // Remove leading/trailing spaces
+        .toLowerCase() // Convert to lowercase
+        .replace(/[^\w\s]/gi, '') // Remove punctuation and special characters
+        .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
+        .trim(); // Remove leading/trailing spaces
 }
 
 // Function to display search results
@@ -157,7 +170,7 @@ function displayResults(data, songQuery, artistQuery) {
 //Modal open with lyric content displayed
 document.getElementById("toggle-lyrics").addEventListener("click", function () {
     const lyricsContent = document.getElementById('lyrics-content').innerHTML;
-    const songTitle =  document.getElementById('song-title').innerText;
+    const songTitle = document.getElementById('song-title').innerText;
 
     // Insert song name and lyric into modal header and body
     document.getElementById('lyricsModalLabel').innerText = `Lyrics for ${songTitle}`;
@@ -263,5 +276,4 @@ document.getElementById("show-lyrics").addEventListener('click', function () {
     } else {
         this.innerText = "Show Lyrics";
     }
-}
-)
+})
