@@ -149,24 +149,6 @@ input[type="text"]:focus {
   color: white;
 }
 
-  #song-info {
-    color: white;
-    background: url('../images/cd-back-2.webp') no-repeat center center;
-    background-size: cover;
-    /* font-size: clamp(1rem, 2vw, 2rem); */
-    min-height: 200px;
-    min-width: 200px;
-    max-height: 600px; 
-    max-width: 600px; 
-    object-fit: cover; width: 100%; height: auto;
-    /* margin-left: 6%; */
-    /* padding-top: 9vh;  */
-    /* margin-right: 5%; */
-    /* object-fit: cover; */
-    /* position: relative; */
-    /* height: 25vh;  */
-    
-  }   
 /* #song-info {
     background: url('../images/band-info-webp.webp') no-repeat center center;
     background-size: cover;
@@ -187,7 +169,6 @@ input[type="text"]:focus {
   color: hsla(12, 83%, 60%, 0.8);
 }
 
- 
 
 
 @media screen and (min-width: 768px) {
