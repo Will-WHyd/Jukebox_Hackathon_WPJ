@@ -299,5 +299,9 @@ document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) =>
 function clearRadioButtons() {
     document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) => {
         radio.checked = false; // Uncheck each radio button
+        
     });
 }
+
+//Add event listener to clear button. Triggers searchVideo() that automatically clears filter
+document.getElementById('clear-filter').addEventListener('click', searchVideos);
