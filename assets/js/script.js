@@ -325,10 +325,29 @@ document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) =>
     });
 });
 
+// Function to set radio button based on dropdown selection
+document.getElementById('filter-dropdown').addEventListener('change', function () {
+    const selectedValue = this.value;
+    
+    // Clear all radio buttons
+    clearRadioButtons();
+
+    // Check the corresponding radio button based on the dropdown selection
+    if (selectedValue) {
+        const radioButton = document.querySelector(`input[data-type="${selectedValue}"]`);
+        if (radioButton) {
+            radioButton.checked = true;
+            selectedFilter = selectedValue; // Update selected filter
+            searchVideos(false); // Trigger search based on the new filter
+        }
+    }
+});
+
+
 // Function to clear all radio button selections
 document.getElementById('clear-filter').addEventListener('click', function () {
     searchVideos(true); // Pass true to clear filters and reset radio buttons
 });
 
 //Add event listener to clear button. Triggers searchVideo() that automatically clears filter
-document.getElementById('clear-filter').addEventListener('click', searchVideos);
+// document.getElementById('clear-filter').addEventListener('click', searchVideos);

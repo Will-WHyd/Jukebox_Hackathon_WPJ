@@ -172,8 +172,8 @@ input[type="text"]:focus {
 /* Filter Buttons */
 
 #filter-buttons {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
 
 }
 
@@ -206,4 +206,44 @@ input[type="text"]:focus {
     margin: 10vh;
   }
 
+}
+
+/* Hide the default radio button */
+.form-check-input {
+  display: none; /* Hide the default radio button */
+}
+
+/* Style the custom radio button */
+.form-check-label {
+  position: relative;
+  padding-left: 25px; /* Add space for custom radio */
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.5; /* Align text with custom radio */
+}
+
+/* Create custom radio */
+.form-check-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); /* Center the custom radio */
+  width: 20px; /* Width of the custom radio */
+  height: 20px; /* Height of the custom radio */
+  border: 2px solid #ee6644ff; /* Border color */
+  border-radius: 50%; /* Make it circular */
+  background-color: white; /* Background color */
+  transition: background-color 0.5s, border-color 0.5s; /* Transition effect */
+}
+
+/* Style for when the radio is checked */
+.form-check-input:checked + .form-check-label::before {
+  background-color: #000000; /* Change background color when checked */
+  border-color: #ee6644ff; /* Change border color when checked */
+}
+
+/* Adding hover effect */
+.form-check-label:hover::before {
+  border-color: #0056b3; /* Change border color on hover */
 }
