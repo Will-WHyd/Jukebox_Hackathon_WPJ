@@ -281,8 +281,20 @@ document.getElementById("show-lyrics").addEventListener('click', function () {
     } else {
         this.innerText = "Show Lyrics";
     }
-}
-)
+})
+
+
+// Reveal up arrow when user scrolls down
+let topArrowButton = document.getElementById("back-to-top-arrow");
+window.onscroll = function() {revealTopArrow()};
+
+function revealTopArrow() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        topArrowButton.style.display = "block";
+    } else {
+        topArrowButton.style.display = "none";
+    }
+};
 
 let selectedFilter = ''; // Holds the filter type based on the selected radio button
 

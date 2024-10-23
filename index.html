@@ -36,7 +36,7 @@
         </nav> -->
     </header>
 
-    <section class="hero-section">
+    <section class="hero-section" id="hero-section">
         <div class="hero-container-image">
             <div class="container-fluid">
                 <!--Logo-->
@@ -52,7 +52,7 @@
                 <div class="row justify-content-center no-gutters">
                     <div id="genius-api-container" class="col-12 justify-content-center">
                         <div class="genius-api-bar d-flex justify-content-center align-items-center flex-column">
-                            <div class="col-8 col-md-10">
+                            <div class="col-10 col-md-10">
                                 <label for="search-input"></label>
                                 <input type="text" id="search-input" class="form-control p-2 m-2"
                                     placeholder="Enter song name" required>
@@ -61,7 +61,7 @@
                                 <a href="javascript:void(0)" id="toggle-artist-query"
                                     class="btn button-outline-secondary">Click to include artist</a>
                                 <input type="text" id="artist-input" class="d-none p-2 m-2"
-                                    placeholder="Enter artist name (optional)">
+                                    placeholder="Artist name (optional)">
                             </div>
                         </div>
                     </div>
@@ -74,6 +74,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!--Genius API results section-->
     <!-- Display song and lyrics info -->
@@ -149,7 +151,7 @@
                                         id="filter-pianolesson" data-type="piano-lesson" value="option3">
                                     <label class="form-check-label" for="inlineRadio3">Piano</label>
                                 </div>
-                                <a href="javascript:void(0)" id="clear-filter">Clear Filter</a>                                
+                                <a href="javascript:void(0)" id="clear-filter">Clear Filter</a>
                             </div>
                         </div>
                     </div>
@@ -164,35 +166,6 @@
                         </div>
                     </div>
 
-        <!-- Bootstrap Modal "fade" class to play videos -->
-        <div class="modal fade" tabindex="-1" id="videoModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Now Playing...</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="modalBody">
-                        <!-- YouTube iFrame. Javascript used to update value in "src" attribute -->
-                        <iframe id="videoIframe" width="100%" height="400" src="" frameborder="0"
-                            allowfullscreen></iframe>
-                        <button type="button" id="show-lyrics" class="btn btn-primary">Show Lyrics</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <div id="video-lyrics" class="d-none"></div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- Lyrics Modal -->
-        <div class="modal fade" id="lyricsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header mx-auto">
-                        <h5 class="modal-title" id="lyricsModalLabel"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body mx-auto" id="lyricsModalBody">
                     <!-- Bootstrap Modal "fade" class to play videos -->
                     <div class="modal fade" tabindex="-1" id="videoModal" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -207,8 +180,7 @@
                                     <!-- YouTube iFrame. Javascript used to update value in "src" attribute -->
                                     <iframe id="videoIframe" width="100%" height="400" src="" frameborder="0"
                                         allowfullscreen></iframe>
-                                    <button type="button" id="show-lyrics" class="btn btn-primary">Show
-                                        Lyrics</button>
+                                    <button type="button" id="show-lyrics" class="btn btn-primary">Show Lyrics</button>
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
                                     <div id="video-lyrics" class="d-none"></div>
@@ -228,83 +200,125 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body mx-auto" id="lyricsModalBody">
+                                    <!-- Bootstrap Modal "fade" class to play videos -->
+                                    <div class="modal fade" tabindex="-1" id="videoModal"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div
+                                            class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Now Playing...</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body" id="modalBody">
+                                                    <!-- YouTube iFrame. Javascript used to update value in "src" attribute -->
+                                                    <iframe id="videoIframe" width="100%" height="400" src=""
+                                                        frameborder="0" allowfullscreen></iframe>
+                                                    <button type="button" id="show-lyrics" class="btn btn-primary">Show
+                                                        Lyrics</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <div id="video-lyrics" class="d-none"></div>
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Lyrics Modal -->
+                                    <div class="modal fade" id="lyricsModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                            <div class="modal-content">
+                                                <div class="modal-header mx-auto">
+                                                    <h5 class="modal-title" id="lyricsModalLabel"></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body mx-auto" id="lyricsModalBody">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                </section>
+
+                <section class="container text-center">
+                    <div>
+                        <h2>VIDEO TEST</h2>
+                    </div>
+                    <div class="card mb-1" style="max-width: 80%; width: 80%;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start"
+                                    alt="Default placeholder" height="100%" width="100%">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h6 class="card-title">1 Video Title Content 1</h6>
+                                    <p class="card-text">Video Snippet Extra Text</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                                <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
+                            </div>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start"
+                                    alt="Default placeholder" height="100%" width="100%">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h6 class="card-title">2 Video Title Content 2</h6>
+                                    <p class="card-text">2222 Video Snippet Extra Text 2222</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                                <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
+                            </div>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start"
+                                    alt="Default placeholder" height="100%" width="100%">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h6 class="card-title">3 Video Title Content 3</h6>
+                                    <p class="card-text">3333 Video Snippet Extra Text 3333</p>
+                                </div>
+                            </div>
+                            <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
+                                <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
                             </div>
                         </div>
                     </div>
 
+                </section>
     </section>
 
-    <section class="container text-center">
-        <div>
-            <h2>VIDEO TEST</h2>
+    <section>
+        <div id="back-to-top-arrow">
+            <a href="#hero-section"><i class="fa-solid fa-circle-chevron-up"></i></a>
         </div>
-        <div class = "card mb-1" style="max-width: 80%; width: 80%;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start" alt="Default placeholder" height="100%" width="100%">
-                </div>
-                <div class="col-md-7">
-                    <div class="card-body">
-                        <h6 class="card-title">1 Video Title Content 1</h6>
-                        <p class="card-text">Video Snippet Extra Text</p>                                   
-                    </div>
-                </div>
-                <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
-                    <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
-                </div>
-            </div>
-        </div>
-        <div class = "card mb-1" style="max-width: 80%; width: 80%;"></div>
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start" alt="Default placeholder" height="100%" width="100%">
-                </div>
-                <div class="col-md-7">
-                    <div class="card-body">
-                        <h6 class="card-title">2 Video Title Content 2</h6>
-                        <p class="card-text">2222 Video Snippet Extra Text 2222</p>                                   
-                    </div>
-                </div>
-                <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
-                    <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
-                </div>
-            </div>
-        </div>
-        <div class = "card mb-1" style="max-width: 80%; width: 80%;"></div>
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="./assets/images/placeholder_album_art.jpg" class="img-fluid rounded-start" alt="Default placeholder" height="100%" width="100%">
-                </div>
-                <div class="col-md-7">
-                    <div class="card-body">
-                        <h6 class="card-title">3 Video Title Content 3</h6>
-                        <p class="card-text">3333 Video Snippet Extra Text 3333</p>                                   
-                    </div>
-                </div>
-                <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
-                    <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
-                </div>
-            </div>
-        </div>
+    </section>
+
+    <!--footer-->
+    <section>
 
     </section>
-                </section>
 
-                <!--footer-->
-                <section>
+    </div>
 
-                </section>
+    <!--Bootstrap JS CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script type="module" src="assets/js/script.js"></script>
+    <script src="https://kit.fontawesome.com/f0ad124e4b.js" crossorigin="anonymous"></script>
 
-            </div>
-
-            <!--Bootstrap JS CDN-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-                crossorigin="anonymous">
-            </script>
-            <script type="module" src="assets/js/script.js"></script>
 </body>
 
 </html>
