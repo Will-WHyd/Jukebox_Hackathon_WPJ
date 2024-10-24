@@ -39,6 +39,10 @@ Developed by William Waldron-Hyden, Patrick Walsh, and Jack Brosnan
   - Due to no database implementation, favorites are lost on refresh. Proof of concept.  
 
 ## Testing
+We tested the API result population using a prefilled test card which would then be populated with the information. Due to limits on the public APIs used, we needed to repeatedly refresh the API keys. 
+
+We encountered a number of visual layout bugs due to responsive design issues. We re-approached the design from the ground up to implement new responsiveness styling. 
+
 
 ### Validator testing
 
@@ -69,6 +73,8 @@ Implementing Levenshtein distance string metric to improve matching accuracy.
 Integrating a third-party API that suggests corrections for common spelling mistakes before submitting the query to the Genius API.
 
 ## Deployment
+
+
 
 ## Credits
 
