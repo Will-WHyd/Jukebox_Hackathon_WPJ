@@ -1,19 +1,16 @@
 //GENIUS LYRICS API
 
-import config from './config.js'; // API information stored in config.js. File added to gitIgnore.
-
-// API Details
-const apiKey1 = config.apiKey1;
-const apiHost1 = config.apiHost1;
+// API Details - Originally in
+const apiKey1 = '5dcae7ac03msh40cfb783d8cdab9p14dddejsnb370984821cf';
+const apiHost1 = 'genius-song-lyrics1.p.rapidapi.com'
 
 //Gets user input from search bar and passes song query to api
-function getSongQuery () {
+function getSongQuery() {
     const songQuery = document.getElementById('search-input').value;
     const artistQuery = document.getElementById('artist-input').value;
     if (songQuery) {
         searchSong(songQuery, artistQuery);
-        searchVideos() // Passes song query
-        clearRadioButtons()
+        searchVideos(true) // Pass true parameter to clear filters and reset radio buttons       
     }
 };
 // Event listener for the search button click
@@ -26,6 +23,13 @@ document.getElementById("search-input").addEventListener('keydown', function (e)
         getSongQuery();
     }
 });
+
+// Function to clear all radio button selections
+function clearRadioButtons() {
+    document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) => {
+        radio.checked = false; // Uncheck each radio button
+    });
+}
 
 // Function to search for songs
 async function searchSong(songQuery, artistQuery) {
@@ -44,7 +48,17 @@ async function searchSong(songQuery, artistQuery) {
 
         const data = await response.json(); //Parse result data to JSON
         console.log("Song Data:", data); //Logs results for review in debugger
-        displayResults(data, songQuery, artistQuery); // Pass both input queries to displaySongs function 
+        displayResults(data, songQuery, artistQuery); // Pass both input queries to displaySongs function
+
+        // Scroll to the "s
+        const songInfoSection = document.getElementById('song-info');
+
+        if (songInfoSection) {
+            songInfoSection.scrollIntoView({
+                behavior: 'smooth'
+            }); // Smooth scroll to the section
+        }
+
     } catch (error) {
         console.error("Error fetching song information:", error);
         document.getElementById('song-info').style.display = 'none'; // Hide container when there is an error
@@ -190,20 +204,20 @@ document.getElementById("toggle-artist-query").addEventListener("click", functio
 //Youtube API
 
 // API Details
-const apiKey2 = config.apiKey2;
-const apiHost2 = config.apiHost2;
+const apiKey2 = 'AIzaSyC6bitxofab8t9FK2SEY0sH-Um_4MlEpl8';
+const apiHost2 = 'https://www.googleapis.com/youtube/v3/search';
 
 // Asynchronous Function to search YouTube for videos based on user input
 async function searchVideos(clearFilter = false) {
     const query = document.getElementById('search-input').value;
 
     // Clear the filter and reset radio buttons only if it's a new search query
-  if (clearFilter) {
-    clearRadioButtons();   // Clear radio buttons on new search
-    selectedFilter = '';   // Reset selected filter when starting a new search
+    if (clearFilter) {
+        clearRadioButtons(); // Clear radio buttons on new search
+        selectedFilter = ''; // Reset selected filter when starting a new search
     }
 
-    const fullQuery = selectedFilter ? `${query} ${selectedFilter}` : query; //checks if filter option is selected
+    const fullQuery = selectedFilter ? `song ${query} ${selectedFilter}` : `song ${query}`; //checks if filter option is selected
 
     const API_STRING =
         // encodeURIComponent used here to replace spaces in user query with corresponding URL safe character
@@ -225,7 +239,7 @@ function displayVideos(e) {
     e.forEach(video => {
         const videoId = video.id.videoId;
         const videoCard = document.createElement('div');
-        videoCard.classList.add('col-12');
+        videoCard.classList.add('col-12', 'mb-3', 'd-flex', 'justify-content-center');
         //Create bootstrap card component and import video data
         videoCard.innerHTML = `
                     <div class = "card mb-1" style="max-width: 80%; width: 80%;">
@@ -240,7 +254,7 @@ function displayVideos(e) {
                                 </div>
                             </div>
                             <div class="col-md-1 d-flex justify-content-center align-items-center playbutton-bg">
-                                <a href="javascript:void(0)" onclick="openModal('${videoId}')">Play</a>
+                                <a href="javascript:void(0)" onclick="openModal('${videoId}')"><i class="fa-solid fa-play" style="color: #ee6644ff; font-size: 2.5rem;" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -286,7 +300,9 @@ document.getElementById("show-lyrics").addEventListener('click', function () {
 
 // Reveal up arrow when user scrolls down
 let topArrowButton = document.getElementById("back-to-top-arrow");
-window.onscroll = function() {revealTopArrow()};
+window.onscroll = function () {
+    revealTopArrow()
+};
 
 function revealTopArrow() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -307,13 +323,26 @@ document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) =>
     });
 });
 
-// Function to clear all radio button selections
-function clearRadioButtons() {
-    document.querySelectorAll('input[name="inlineRadioOptions"]').forEach((radio) => {
-        radio.checked = false; // Uncheck each radio button
-        
-    });
-}
+// Function to set radio button based on dropdown selection
+document.getElementById('filter-dropdown').addEventListener('change', function () {
+    const selectedValue = this.value;
+    
+    // Clear all radio buttons
+    clearRadioButtons();
 
-//Add event listener to clear button. Triggers searchVideo() that automatically clears filter
-document.getElementById('clear-filter').addEventListener('click', searchVideos);
+    // Check the corresponding radio button based on the dropdown selection
+    if (selectedValue) {
+        const radioButton = document.querySelector(`input[data-type="${selectedValue}"]`);
+        if (radioButton) {
+            radioButton.checked = true;
+            selectedFilter = selectedValue; // Update selected filter
+            searchVideos(false); // Trigger search based on the new filter
+        }
+    }
+});
+
+function clearFilter () {
+    searchVideos(true); // Pass true to clear filters and reset radio buttons
+};
+
+window.clearFilter = clearFilter; // Attach to window object
