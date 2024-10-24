@@ -17,27 +17,7 @@
 </head>
 
 <body>
-    <header>
-        <!-- <nav class="navbar">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <button class="btn btn-primary p-2 m-2 ">Button 1</button>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <button class="btn btn-secondary p-2 m-2 ">Button 2</button>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <button class="btn btn-primary p-2 m-2 ">Login</button>
-                    </div>
-                    <br>
-                    <a href="api.html">API Test</a>
-                </div>
-            </div>
-            </div>
-        </nav> -->
-    </header>
-
+    
     <section class="hero-section" id="hero-section">
         <div class="hero-container-image">
             <div class="container-fluid">
@@ -108,91 +88,59 @@
 
     <!--Youtube API results section-->
     <section>
-        <div class="container bg-orange">
+        <div class="container bg-orange" id="video-section">
 
             <div class="text-center py-2">
                 <h2>Jukebox Jams: Watch Related Videos</h2>
             </div>
 
-            <div id="video-filter-holder" class="container mt-4"></div>
-            <!-- Video List Section-->
-            <div class="row d-flex justify-content-center my-2">
-                <div class="col-12 d-flex justify-content-center align-items-center bg-light">
-                    <!-- Bootstrap inline radio buttons. Used for filtering and refreshing API results -->
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-live"
-                            data-type="live-performance" value="option1">
-                        <label class="form-check-label" for="live-performance">Live Performance</label>
+            <div id="filter-buttons" class="mb-2 py-2 d-none d-md-block">
+                <!-- Video List Section-->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <!-- Bootstrap inline radio buttons. Used for filtering and refreshing API results -->
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-live"
+                                data-type="live-performance" value="option1">
+                            <label class="form-check-label" for="filter-live">Live Performance</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-cover"
+                                data-type="cover-version" value="option2">
+                            <label class="form-check-label" for="filter-cover">Cover Version</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <span class="pe-2"><strong>Lessons:</strong></span>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                id="filter-guitarlesson" data-type="guitar-lesson" value="option3">
+                            <label class="form-check-label" for="filter-guitarlesson">Guitar</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                id="filter-pianolesson" data-type="piano-lesson" value="option4">
+                            <label class="form-check-label" for="filter-pianolesson">Piano</label>
+                        </div>
+
+                        <a href="javascript:void(0)" id="clear-filter" class="d-none d-md-block"
+                            onclick="clearFilter()">Clear Filter</a>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-cover"
-                            data-type="cover-version" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">Cover Version</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <span class="pe-2"><strong>Lessons:</strong></span>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-guitarlesson"
-                            data-type="guitar-lesson" value="option3">
-                        <label class="form-check-label" for="inlineRadio3">Guitar</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-pianolesson"
-                            data-type="piano-lesson" value="option3">
-                        <label class="form-check-label" for="inlineRadio3">Piano</label>
-                    </div>
-                    <a href="javascript:void(0)" id="clear-filter">Clear Filter</a>
                 </div>
             </div>
-        </div>
-        <div id="filter-buttons" class="mb-2 py-2 d-none d-md-block">
-            <!-- Video List Section-->
-            <div class="row d-flex justify-content-center">
-                <div class="col-12 d-flex justify-content-center align-items-center">
-                    <!-- Bootstrap inline radio buttons. Used for filtering and refreshing API results -->
 
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-live"
-                            data-type="live-performance" value="option1">
-                        <label class="form-check-label" for="filter-live">Live Performance</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-cover"
-                            data-type="cover-version" value="option2">
-                        <label class="form-check-label" for="filter-cover">Cover Version</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <span class="pe-2"><strong>Lessons:</strong></span>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-guitarlesson"
-                            data-type="guitar-lesson" value="option3">
-                        <label class="form-check-label" for="filter-guitarlesson">Guitar</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="filter-pianolesson"
-                            data-type="piano-lesson" value="option4">
-                        <label class="form-check-label" for="filter-pianolesson">Piano</label>
-                    </div>
-
-                    <a href="javascript:void(0)" id="clear-filter" class="d-none d-md-block"
-                        onclick="clearFilter()">Clear Filter</a>
-                </div>
+            <div class="mb-2 py-2">
+                <select id="filter-dropdown" class="form-select d-md-none" aria-label="Filter Options">
+                    <option selected>Select Filter</option>
+                    <option value="live-performance">Live Performance</option>
+                    <option value="cover-version">Cover Version</option>
+                    <option disabled>---------</option> <!-- Divider -->
+                    <option disabled>Lessons</option> <!-- Non-selectable header -->
+                    <option value="guitar-lesson">Guitar Lesson</option>
+                    <option value="piano-lesson">Piano Lesson</option>
+                </select>
             </div>
-        </div>
-
-        <div class="mb-2 py-2">
-            <select id="filter-dropdown" class="form-select d-md-none" aria-label="Filter Options">
-                <option selected>Select Filter</option>
-                <option value="live-performance">Live Performance</option>
-                <option value="cover-version">Cover Version</option>
-                <option disabled>---------</option> <!-- Divider -->
-                <option disabled>Lessons</option> <!-- Non-selectable header -->
-                <option value="guitar-lesson">Guitar Lesson</option>
-                <option value="piano-lesson">Piano Lesson</option>
-            </select>
-        </div>
 
         <div class="container mt-4">
             <div class="row d-flex justify-content-center mb-2">
