@@ -50,6 +50,30 @@ Developed by William Waldron-Hyden, Patrick Walsh, and Jack Brosnan
 
 ### Unfixed Bugs
 
+1.__Query Matching for Song Search__
+
+__Description:__
+
+Currently, the search functionality attempts to match the user’s song query to the most relevant song in the results returned from the Genius API. The system has been designed to handle minor discrepancies by making the matching criteria more lenient, such as removing special characters, normalizing case, and removing extra spaces. However, this approach is limited in its ability to handle more significant user input issues, such as spelling mistakes or typos.
+
+__Impact:__
+
+Users may not receive the correct song if the query contains spelling errors.
+The system may fail to retrieve the most relevant song even if a close match is available, leading to inaccurate search results.
+Cause:
+The matching function only performs basic string formatting and normalization but does not incorporate advanced techniques such as fuzzy matching, which would allow the search to account for misspellings or approximate matches.
+
+__Previous Efforts:__
+
+Special characters and double spaces are removed from both the user input and API results.
+Converting input and results to lowercase was implemented.
+Despite these measures, the system remains unable to handle common spelling mistakes or incomplete search queries effectively.
+
+__Possible Solutions:__
+
+Implementing Levenshtein distance string metric to improve matching accuracy.
+Integrating a third-party API that suggests corrections for common spelling mistakes before submitting the query to the Genius API.
+
 ## Deployment
 In the GitHub repository, navigate to the Settings tab
 From the source section drop-down menu, select the Master Branch

@@ -17,27 +17,7 @@
 </head>
 
 <body>
-    <header>
-        <!-- <nav class="navbar">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <button class="btn btn-primary p-2 m-2 ">Button 1</button>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <button class="btn btn-secondary p-2 m-2 ">Button 2</button>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <button class="btn btn-primary p-2 m-2 ">Login</button>
-                    </div>
-                    <br>
-                    <a href="api.html">API Test</a>
-                </div>
-            </div>
-            </div>
-        </nav> -->
-    </header>
-
+    
     <section class="hero-section" id="hero-section">
         <div class="hero-container-image">
             <div class="container-fluid">
@@ -59,18 +39,22 @@
                                 <input type="text" id="search-input" class="form-control p-2 m-2"
                                     placeholder="Enter song name" required>
                             </div>
-                            <div class="col-8 col-md-10">
+                            <div class="col-10 col-md-10 p-2 m-2">
                                 <a href="javascript:void(0)" id="toggle-artist-query"
                                     class="btn button-outline-secondary">Click to include artist</a>
-                                <input type="text" id="artist-input" class="d-none p-2 m-2"
+                                <input type="text" id="artist-input" class="d-none p-2"
                                     placeholder="Artist name (optional)">
                             </div>
                         </div>
                     </div>
-                    <div id="find-your-song-text" class="col-6">
-                        <button id="search-btn" class="btn custom-search-btn p-2 w-100">
-                            <h2>Find your song!</h2>
-                        </button>
+                    <div id="search-btn" class="find-your-song col-6">
+                        <div id="find-your-song-text" class="col-6">
+                            <img src="./assets/images/vinyl-no-shadow.webp"
+                                alt="Vinyl Record button, click here to find your song">
+                            <div class="custom-search-btn p-2">
+                                <h2>Find your song!</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,36 +83,13 @@
                         <div id="lyrics-content" class="d-none"></div>
                     </div>
                 </div>
-
-                <section id="band-info">
-                    <!-- Display song and lyrics info -->
-                    <div class="container-fluid">
-                        <div class="row d-flex align-items-center">
-                            <div class="col-6 text-center">
-                                <div id="song-info">
-                                    <h2 id="song-title"></h2>
-                                    <p id="artist-name"></p>
-                                    <p id="release-date"></p>
-                                </div>
-                            </div>
-                            <div class="col-6 align-items-center">
-                                <img id="album-cover" alt="Album Cover">
-                            </div>
-                            <div id="lyrics">
-                                <button id="toggle-lyrics" class="btn btn-primary">Toggle Lyrics</button>
-                                <div id="lyrics-content" class="d-none"></div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
     </section>
 
     <!--Youtube API results section-->
     <section>
-        <div class="container bg-orange">
+        <div class="container bg-orange" id="video-section">
 
             <div class="text-center py-2">
                 <h2>Jukebox Jams: Watch Related Videos</h2>
@@ -182,13 +143,17 @@
                 </select>
             </div>
 
-
-            <div>
-                <div class="row d-flex justify-content-center">
-                    <div id="videoList" class="col-md-10"></div>
-                </div>
+        <div class="container mt-4">
+            <div class="row d-flex justify-content-center mb-2">
+                <div id="videoList" class="col-md-10"></div>
             </div>
+        </div>
 
+        <div>
+            <div class="row d-flex justify-content-center">
+                <div id="videoList" class="col-md-10"></div>
+            </div>
+        </div>
         </div>
     </section>
     <!-- Bootstrap Modal "fade" class to play videos -->

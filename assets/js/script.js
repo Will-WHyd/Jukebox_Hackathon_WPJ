@@ -4,6 +4,15 @@
 const apiKey1 = '053c0326f4msh18660a254065af6p17cfdajsn0124f3b4c93b';
 const apiHost1 = 'genius-song-lyrics1.p.rapidapi.com'
 
+const songInfoContainer = document.getElementById('song-info');
+    const lyricsContainer = document.getElementById('lyrics');
+    const videoContainer = document.getElementById('video-section');
+
+    // Hide all sections initially
+    songInfoContainer.style.display = 'none';
+    // lyricsContainer.style.display = 'none';
+    videoContainer.style.display = 'none';
+
 //Gets user input from search bar and passes song query to api
 function getSongQuery() {
     const songQuery = document.getElementById('search-input').value;
@@ -118,13 +127,7 @@ function formatString(str) {
 
 // Function to display search results
 function displayResults(data, songQuery, artistQuery) {
-    const songInfoContainer = document.getElementById('song-info');
-    const lyricsContainer = document.getElementById('lyrics');
-
-    // Hide all sections initially
-    songInfoContainer.style.display = 'none';
-    lyricsContainer.style.display = 'none';
-
+    
     if (data.hits && data.hits.length > 0) {
         // format queries to make them more lenient
         const formattedSongQuery = formatString(songQuery);
@@ -169,6 +172,7 @@ function displayResults(data, songQuery, artistQuery) {
             // Fetch and display song lyrics
             fetchSongLyrics(songId);
             lyricsContainer.style.display = 'block';
+            videoContainer.style.display = 'block';
 
         } else {
             document.getElementById('lyrics-content').innerText = 'No song results found';
@@ -228,12 +232,15 @@ async function searchVideos(clearFilter = false) {
     const data = await response.json();
     console.log(data.items);
     displayVideos(data.items);
+    
 }
 
 // Function to display video search results
 function displayVideos(e) {
     const videoList = document.getElementById('videoList');
     videoList.innerHTML = ''; // Clear previous query results
+
+    
 
     //Loop through new results and create div element including html
     e.forEach(video => {
@@ -261,6 +268,8 @@ function displayVideos(e) {
                 `;
         videoList.appendChild(videoCard); //adds above div element within 'videoList' div
     });
+
+    videoContainer.style.display = 'block';
 }
 
 // Function to open the Bootstrap modal and play the selected video
