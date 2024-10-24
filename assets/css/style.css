@@ -228,19 +228,19 @@ input[type="text"]:focus {
   position: absolute;
   left: 0;
   top: 50%;
-  transform: translateY(-50%); /* Center the custom radio */
-  width: 20px; /* Width of the custom radio */
-  height: 20px; /* Height of the custom radio */
-  border: 2px solid #ee6644ff; /* Border color */
-  border-radius: 50%; /* Make it circular */
-  background-color: white; /* Background color */
-  transition: background-color 0.5s, border-color 0.5s; /* Transition effect */
+  transform: translateY(-50%);
+  width: 20px; 
+  height: 20px; 
+  border: 2px solid #ee6644ff; 
+  border-radius: 50%; 
+  background-color: white;
+  transition: background-color 0.5s, border-color 0.5s; 
 }
 
 /* Style for when the radio is checked */
 .form-check-input:checked + .form-check-label::before {
-  background-color: #000000; /* Change background color when checked */
-  border-color: #ee6644ff; /* Change border color when checked */
+  background-color: #ee6644ff; /* Change background color when checked */
+  border: 4px solid #000000;
 }
 
 /* Adding hover effect */

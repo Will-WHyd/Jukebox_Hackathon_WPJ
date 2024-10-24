@@ -1,10 +1,8 @@
 //GENIUS LYRICS API
 
-import config from './config.js'; // API information stored in config.js. File added to gitIgnore.
-
-// API Details
-const apiKey1 = config.apiKey1;
-const apiHost1 = config.apiHost1;
+// API Details - Originally in
+const apiKey1 = '5dcae7ac03msh40cfb783d8cdab9p14dddejsnb370984821cf';
+const apiHost1 = 'genius-song-lyrics1.p.rapidapi.com'
 
 //Gets user input from search bar and passes song query to api
 function getSongQuery() {
@@ -206,8 +204,8 @@ document.getElementById("toggle-artist-query").addEventListener("click", functio
 //Youtube API
 
 // API Details
-const apiKey2 = config.apiKey2;
-const apiHost2 = config.apiHost2;
+const apiKey2 = 'AIzaSyC6bitxofab8t9FK2SEY0sH-Um_4MlEpl8';
+const apiHost2 = 'https://www.googleapis.com/youtube/v3/search';
 
 // Asynchronous Function to search YouTube for videos based on user input
 async function searchVideos(clearFilter = false) {
