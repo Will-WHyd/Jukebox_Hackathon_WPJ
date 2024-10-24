@@ -1,3 +1,8 @@
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+/* Basic body styles */
 body {
   background: url('../images/vinyl-hero.webp') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -5,10 +10,14 @@ body {
   -o-background-size: cover;
   background-size: cover;
   z-index: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .hero-section {
-  /* background: url('../images/vinyl-hero.webp') no-repeat center center; */
   background-size: cover;
   position: relative;
   /* height: 100vh; */
