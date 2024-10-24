@@ -39,10 +39,10 @@
                                 <input type="text" id="search-input" class="form-control p-2 m-2"
                                     placeholder="Enter song name" required>
                             </div>
-                            <div class="col-8 col-md-10">
+                            <div class="col-10 col-md-10 p-2 m-2">
                                 <a href="javascript:void(0)" id="toggle-artist-query"
                                     class="btn button-outline-secondary">Click to include artist</a>
-                                <input type="text" id="artist-input" class="d-none p-2 m-2"
+                                <input type="text" id="artist-input" class="d-none p-2"
                                     placeholder="Artist name (optional)">
                             </div>
                         </div>
@@ -70,10 +70,11 @@
             <div class="row no-gutters">
                 <!-- Display song and lyrics info -->
                 <div class="album-art col-md-6">
-                    <img class="card-img" id="album-cover" alt="Album Cover"
+                    <img class="card-img img-fluid" id="album-cover" alt="Album Cover"
                         src="assets/images/placeholder_album_art.jpg">
                 </div>
-                <div id="song-info" class="card-body col-md-4">
+                <div class="card col-md-6">
+                <div id="song-info" class="card-body">
                     <h2 id="song-title" class="card-title">Test Title</h2>
                     <p id="artist-name" class="card-text">Test Band Name</p>
                     <p id="release-date" class="card-text">Test release date</p>
