@@ -89,17 +89,12 @@ input[type="text"]:focus {
   font-size: 1.2em;
 }
 
-
-
-
-#find-your-song-text {
+/* Styles search button with vinyl image */
+.find-your-song {
   font-size: 1.5rem;
   font-weight: 600;
   position: relative;
-  /* padding: 1rem; */
-  /* background-color: #ee6644ff; */
   border-radius: 50%;
-  /* box-shadow: 5px 5px 20px white; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,16 +102,23 @@ input[type="text"]:focus {
   height: fit-content;
 }
 
-#find-your-song-text img {
+.find-your-song img {
   
   width: 100%;
   height: auto;
 }
 
+.find-your-song h2 {
+  text-shadow: 0 0 5px black, 0 1px 10px #b10386ff;
+}
+
 .custom-search-btn {
-  background-color: hsla(78, 19%, 14%, 0.6);
-  /* background-image: url('../images/vinyl_record.webp') no-repeat center center fixed; */
+  background-color: hsla(78, 19%, 14%, 0.1);
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -128,32 +130,21 @@ input[type="text"]:focus {
   font-size: 1.2em;
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.2s;
-  width: 60%;
-  height: auto;
+  width: 50%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .custom-search-btn:hover {
-  background-color: rgb(177, 74, 48);
+  background-color: hsla(12, 83%, 60%, 0.6);
   transform: scale(1.05), translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 20px white;
 }
 
 #toggle-artist-query {
   color: rgb(255, 255, 255);
 }
-
-
-
-/* #find-your-song-text {
-    font-size:3vw;
-    font-weight: 600;
-    height: 4vw;
-    background-color: #eef0ebff;
-    box-shadow: 5px 5px 20px white;
-    margin-left:33vw;
-    margin-right: 33vw;
-  } */
-
 
 #album-cover {
   max-height: 300px;
@@ -166,13 +157,6 @@ input[type="text"]:focus {
   color: white;
 }
 
-/* #song-info {
-    background: url('../images/band-info-webp.webp') no-repeat center center;
-    background-size: cover;
-    position: relative;
-    height: 25vh;
-    border-radius: 50px;
-  } */
 
 #back-to-top-arrow {
   position: fixed;
