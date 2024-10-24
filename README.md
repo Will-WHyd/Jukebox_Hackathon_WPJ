@@ -52,6 +52,12 @@ We encountered a number of visual layout bugs due to responsive design issues. W
 
 ### Validator testing
 
+Currently undergoing validation testing. 
+
+CSS validation has 1 error. Working through multiple HTML validation issues. 
+
+Project all works correctly and displays as desired. 
+
 ### Unfixed Bugs
 
 1.__Query Matching for Song Search__
@@ -83,7 +89,6 @@ In the GitHub repository, navigate to the Settings tab
 From the source section drop-down menu, select the Master Branch
 Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
 The live link can be found here - https://github.com/Will-WHyd/Jukebox_Hackathon_WPJ/deployments/github-pages
-
 
 
 
