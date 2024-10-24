@@ -99,7 +99,7 @@ input[type="text"]:focus {
   /* padding: 1rem; */
   /* background-color: #ee6644ff; */
   border-radius: 50%;
-  box-shadow: 5px 5px 20px white;
+  /* box-shadow: 5px 5px 20px white; */
   display: flex;
   justify-content: center;
   align-items: center;
