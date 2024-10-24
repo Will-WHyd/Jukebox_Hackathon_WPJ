@@ -14,17 +14,23 @@ Developed by William Waldron-Hyden, Patrick Walsh, and Jack Brosnan
   - This input is connected to two APIs which will fetch two types of information which create site interactivity in the features outlined below. 
   - The hero image holds this search bar, catching the user's eye and calling them to action as soon as they see the screen. 
 
+ ![alt text](assets/images/JUKEBOX-HERO.png)
 - __Song Info & Lyrics Section__
   - Below the search bar, a song info section will populate based on the user input. 
   - Using the Genius API, information such as song name, artist, release date, and album art will appear here.
   - This section includes an expandable card that holds the lyrics for the selected song. 
   - This section is fully responsive and provides a readable, enjoyable display on multiple devices. 
 
+  ![alt text](assets/images/JUKEBOX-SONG-CARD.png)
+
 - __Music Video Section__
   - Below the lyrics section, a music video section will populate based on the same user input. 
   - Using the Youtube API, search results of music videos matching the user request will populate.
   - Clicking on a video causes a modal to appear which contains the video for viewing. 
   - A series of radio button toggles will allow for search refinement, so users can search for live shows, instrumentals, and other alternative forms,
+
+  ![alt text](assets/images/JUKEBOX-FILTER-BAR.png)
+  ![alt text](assets/images/JUKEBOX-VIDEO-SECTION.png)
 
 
 ### Features left to Implement
@@ -69,9 +75,15 @@ Implementing Levenshtein distance string metric to improve matching accuracy.
 Integrating a third-party API that suggests corrections for common spelling mistakes before submitting the query to the Genius API.
 
 ## Deployment
+In the GitHub repository, navigate to the Settings tab
+From the source section drop-down menu, select the Master Branch
+Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+The live link can be found here - https://github.com/Will-WHyd/Jukebox_Hackathon_WPJ/deployments/github-pages
+
 
 ## Credits
-
-### Content
-
-### Media
+Hero image and search icon from https://www.pexels.com/
+Icons from font awesome.
+Fonts from google fonts.
+Genuis API and Youtube API 
+Framework used was bootstrap 5
