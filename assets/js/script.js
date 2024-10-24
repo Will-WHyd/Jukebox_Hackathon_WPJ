@@ -9,7 +9,7 @@ const songInfoContainer = document.getElementById('song-info');
     const videoContainer = document.getElementById('video-section');
 
     // Hide all sections initially
-    // songInfoContainer.style.display = 'none';
+    songInfoContainer.style.display = 'none';
     // lyricsContainer.style.display = 'none';
     videoContainer.style.display = 'none';
 
