@@ -1,7 +1,7 @@
 //GENIUS LYRICS API
 
 // API Details - Originally in
-const apiKey1 = '053c0326f4msh18660a254065af6p17cfdajsn0124f3b4c93b';
+const apiKey1 = '15700c47d5mshdf4938cbc10ebd4p123a81jsn6ba65db1e6bf';
 const apiHost1 = 'genius-song-lyrics1.p.rapidapi.com'
 
 const songInfoContainer = document.getElementById('song-info');
@@ -208,7 +208,7 @@ document.getElementById("toggle-artist-query").addEventListener("click", functio
 //Youtube API
 
 // API Details
-const apiKey2 = 'AIzaSyC6bitxofab8t9FK2SEY0sH-Um_4MlEpl8';
+const apiKey2 = 'AIzaSyAjIdytOzpiipkuBZEYhRrZMnprjmChkGQ';
 const apiHost2 = 'https://www.googleapis.com/youtube/v3/search';
 
 // Asynchronous Function to search YouTube for videos based on user input
