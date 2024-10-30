@@ -161,9 +161,8 @@ input[type="text"]:focus {
 }
 
 #back-to-top-arrow i {
-  color: hsla(12, 83%, 60%, 0.8);
+  color: hsla(12, 95%, 46%, 0.8);
 }
-
 /* Filter Buttons */
 
 #filter-buttons {
