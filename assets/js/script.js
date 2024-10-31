@@ -1,7 +1,7 @@
 //GENIUS LYRICS API
 
 // API Details - Originally in
-const apiKey1 = '638ad722d7msh3d2c6f7398b960fp13ed6djsnf433b649706e';
+const apiKey1 = '15700c47d5mshdf4938cbc10ebd4p123a81jsn6ba65db1e6bf';
 const apiHost1 = 'genius-song-lyrics1.p.rapidapi.com'
 
 const songInfoContainer = document.getElementById('song-info');
